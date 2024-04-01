@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\News;
+use Illuminate\Http\Request;
+
+class NewsController extends Controller
+{
+    public function store(Request $request)
+    {
+        if ($request->hasFile('image')) {
+            $validate = $request->validate(['image' => 'mimes:jpeg,png,jpg']);
+            if ($validate) {
+                $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
+                $image = $request->file('image');
+                $image->move(public_path('assets/img/news/'), $imageName);
+            } else {
+                return redirect()->back()->withErrors($validate);
+            }
+        } else {
+            $imageName = '';
+        }
+
+        News::create([
+            'judul' => $request->judul,
+            'tgl_post' => $request->tgl_post,
+            'nama_penulis' => $request->nama_penulis,
+            'isi' => $request->isi,
+            'image' => $imageName,
+        ]);
+
+        return redirect()->back()->with(['pesan' => 'Data berhasil terkirim']);
+    }
+
+    public function destroy(string $id)
+    {
+        $news = News::find($id);
+        $pesan = 'Data berhasil dihapus';
+
+        if ($news->image != NULL) {
+            $file_path = public_path('assets/img/news/' . $news->image);
+            if (unlink($file_path)) {
+                $pesan = 'Data berhasil dihapus';
+            } else {
+                $pesan = 'Data gagal dihapus';
+            }
+        } else {
+        }
+        News::where('id', $id)->delete();
+        return redirect()->back()->with(['pesan' => $pesan]);
+    }
+}

@@ -1,23 +1,61 @@
-<nav class=" w-full flex items-center justify-between px-40 mx-auto fixed z-50 ease-[ease-out] duration-300 backdrop-blur-[2px] border-b-[1px] border-neutral-600 text-warna02"
-    id="navbar">
-    <a class="" href={{ url('/') }}>
-        <img src={{ asset('assets/img/debindo-logo.png') }} class="" alt="debindo-logo">
-    </a>
-    <ul class="flex h-full">
-        <x-navlink link="{{ url('/') }}" children="HOME" />
-        <x-navlink link="{{ url('/event') }}" children="EVENTS" />
-        <x-navlink link="{{ url('/news') }}" children="NEWS" />
-        <x-navlink link="{{ url('/career') }}" children="CAREER" />
-        <x-navlink link="{{ url('/team') }}" children="OUR TEAM" />
-        <x-navlink link="{{ url('/about') }}" children="ABOUT" />
-        <x-navlink link="{{ url('/contact') }}" children="CONTACT US" />
-    </ul>
-
-    <ul class="flex h-full">
-        <x-navlink-icon link="https://www.instagram.com/debindonetwork/" children="fab fa-instagram" />
-        <x-navlink-icon link="https://www.facebook.com/DebindoNetwork" children="fab fa-facebook" />
-        <x-navlink-icon link="https://www.youtube.com/channel/UCIPrt0NBCwyNhaKWeSd4iLw?view_as=subscriber/"
-            children="fab fa-youtube" />
-        <x-navlink-icon link="https://www.linkedin.com/company/debindo/" children="fab fa-linkedin" />
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url('') }}">
+            <img src="{{ url('assets/img/debindo-logo.png') }}" class="" alt="debindo-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav navbar-page">
+                <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
+                    <a href="{{ url('') }}">HOME</a>
+                </li>
+                <li class="nav-item {{ request()->is('about') ? 'active' : '' }}">
+                    <a href="{{ url('about') }}">ABOUT</a>
+                </li>
+                <li class="nav-item {{ request()->is('team') ? 'active' : '' }}">
+                    <a href="{{ url('team') }}">OUR TEAM</a>
+                </li>
+                <li class="nav-item {{ request()->is('event') ? 'active' : '' }}">
+                    <a href="{{ url('event') }}">EVENTS</a>
+                </li>
+                <li class="nav-item {{ request()->is('career') ? 'active' : '' }}">
+                    <a href="{{ url('career') }}">CAREER</a>
+                </li>
+                <li class="nav-item {{ request()->is('news') ? 'active' : '' }}">
+                    <a href="{{ url('news') }}">NEWS</a>
+                </li>
+                <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
+                    <a href="{{ url('contact') }}">CONTACT US</a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav social-media">
+                <li class="nav-item">
+                    <a class=" " href="https://www.instagram.com/debindonetwork/" target="blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class=" " href="https://www.facebook.com/DebindoNetwork/" target="blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class=" " href="https://www.youtube.com/channel/UCIPrt0NBCwyNhaKWeSd4iLw?view_as=subscriber"
+                        target="blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class=" " href="https://www.linkedin.com/company/debindo/" target="blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>

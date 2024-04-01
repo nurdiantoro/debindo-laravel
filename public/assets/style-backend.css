@@ -1,0 +1,47 @@
+:root {
+	--warna-01: rgb(20, 67, 143);
+	--warna-02: rgb(255, 203, 4);
+	--black-100: #000000;
+	--black-90: #3F3F3F;
+	--black-50: #808080;
+	--black-30: #C1C1C1;
+	--black-05: #EEEEEE;
+	--white-100: #FFFFFF;
+	--gradasi-01: linear-gradient(-90deg, #14438F 0%, #0061FF 100%);
+
+	--regular: 400;
+	--semi-bold: 600;
+	--bold: 700;
+
+	--youtube: #FF0000;
+	--linkedin: #0077B5;
+	--facebook: #4267B2;
+	--instagram: #BC2A8D;
+}
+
+/* -------------------------------------DASHBOARD------------------------------------- */
+#dashboard .card-event,
+#dashboard .card-news,
+#dashboard .card-testimoni {
+	background-color: var(--white-100);
+	padding: 10px;
+	border-radius: 10px;
+	border: 0.5px solid var(--warna-01);
+}
+
+/* -------------------------------------EVENT------------------------------------- */
+#event .card p {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+/* -------------------------------------NEWS------------------------------------- */
+#news p {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
