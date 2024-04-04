@@ -11,7 +11,7 @@
                         <div class="title">{{ $carousel->title }}
                             <p>{{ $carousel->subtitle }}</p>
                         </div>
-                        <img src="{{ url('assets/img/event/') . $carousel->foto }}" alt="" class="img-fluid w-100">
+                        <img src="{{ asset('assets/img/event/' . $carousel->foto) }}" alt="" class="img-fluid w-100">
                     </div>
                 @endforeach
             </div>

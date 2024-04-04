@@ -166,7 +166,8 @@ body {
 /* ----------------------------------FOOTER---------------------------------- */
 
 #footer {
-	background-image: var(--gradasi-01);
+	/* background-image: var(--gradasi-01); */
+    background-color: var(--warna-01);
 	border-top: 4px solid var(--warna-02);
 	padding: 42px 0px;
 	color: var(--white-100);
@@ -235,6 +236,7 @@ body {
 	font-size: 26px;
 	font-weight: var(--bold);
 	color: var(--warna-01);
+    position: relative;
 }
 
 #homepage h3::before {
@@ -245,7 +247,7 @@ body {
 	color: var(--warna-02);
 	display: inline-block;
 	position: absolute;
-	top: 40px;
+	bottom: -10px;
 	left: calc(50% - 30px);
 }
 
@@ -357,7 +359,8 @@ body {
 
 #homepage .status .active {
 	position: relative;
-	background-image: var(--gradasi-01);
+	/* background-image: var(--gradasi-01); */
+    background-color: var(--warna-01) !important;
 	/* transform: scale(1.2); */
 	z-index: 1000;
 }
@@ -397,7 +400,7 @@ body {
 	color: var(--warna-01);
 	text-align: center;
 	width: 100%;
-	line-height: 80px;
+    position: relative;
 }
 
 #homepage .owl-item.active.center .carousel-testimoni-item {
@@ -458,6 +461,88 @@ body {
 	margin-top: 10px;
 }
 
+#homepage .partner{
+    background-color: #ffffff;
+    padding: 45px 0px;
+}
+
+#homepage .partner h3::before{
+    display: none;
+}
+#homepage .partner h4{
+    font-size: 24px;
+    color: var(--warna-02);
+}
+
+
+#homepage .partner .owl-stage{
+    display: flex;
+    align-items: center;
+}
+#homepage .partner .owl-carousel img{
+    max-height: 100px;
+    max-width: 150px;
+    height: auto;
+    width: auto;
+}
+
+#homepage .next-event{
+    background-color: #ffffff;
+    padding: 45px 0px;
+}
+
+#homepage .next-event .card-flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+#homepage .next-event .card-wrapper{
+    padding: 10px;
+    width: 50%;
+    margin: auto;
+}
+
+#homepage .next-event .card{
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 7px 12px #dedede;
+}
+
+#homepage .next-event p{
+    /* margin: 0 !important; */
+}
+
+#homepage .next-event .card .nama{
+    margin-top: 1rem;
+    margin-bottom: 0px;
+    font-weight: var(--bold);
+    font-size: 20px;
+    color: var(--black-90);
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+#homepage .next-event .card .tanggal{
+    font-size: 16px;
+    color: var(--black-90);
+    margin-bottom: 0px;
+}
+#homepage .next-event .card .lokasi{
+    font-size: 16px;
+    color: var(--black-90);
+    margin-bottom: 1rem;
+}
+
+#homepage .next-event .card .link{
+    border-radius: 6px;
+    background-color: var(--warna-01);
+    color: #fff;
+    padding: 4px 20px;
+    display: inline;
+    margin: 0px auto 1rem auto;
+}
+
 /* ----------------------------------EVENT PAGE---------------------------------- */
 #event {
 	background-image: url('img/wave-background.svg');
@@ -479,7 +564,7 @@ body {
 	content: "";
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+	/* background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%); */
 	opacity: 0.4;
 	transition: opacity 150ms ease-out;
 }
@@ -1637,6 +1722,10 @@ body {
 		opacity: 1;
 		transition: 1500ms ease;
 	}
+
+    #homepage .next-event .card-wrapper{
+        width: 100%;
+    }
 
 	/* -----------------FOOTER----------------- */
 	#footer {

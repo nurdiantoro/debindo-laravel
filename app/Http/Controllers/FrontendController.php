@@ -45,7 +45,7 @@ class FrontendController extends Controller
     public function news()
     {
         $newsCarousel = NewsCarousel::all();
-        $newss = News::all();
+        $newss = News::orderBy('tgl_post', 'desc')->get();
         $title = "Debindo | News";
         return view('frontend.news', [
             'title' => $title,
