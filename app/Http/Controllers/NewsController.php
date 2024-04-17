@@ -33,6 +33,18 @@ class NewsController extends Controller
         return redirect()->back()->with(['pesan' => 'Data berhasil terkirim']);
     }
 
+    public function update(Request $request)
+    {
+
+        $update = News::find($request->id)->update($request->all());
+        if ($update) {
+            $pesan = "News berhasil di update";
+        } else {
+            $pesan = "News gagal di update";
+        }
+        return redirect()->back()->with(["pesan" => $pesan]);
+    }
+
     public function destroy(string $id)
     {
         $news = News::find($id);
@@ -45,7 +57,6 @@ class NewsController extends Controller
             } else {
                 $pesan = 'Data gagal dihapus';
             }
-        } else {
         }
         News::where('id', $id)->delete();
         return redirect()->back()->with(['pesan' => $pesan]);

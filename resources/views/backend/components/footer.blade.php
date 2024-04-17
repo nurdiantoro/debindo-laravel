@@ -30,14 +30,6 @@
 </script>
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
 <script src="{{ asset('sb-admin-2/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script>
-    new DataTable('#example');
-    new DataTable('#table_event', {
-        order: [
-            [3, 'des']
-        ]
-    });
-</script>
 <script src="{{ asset('sb-admin-2/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 <script src="{{ asset('sb-admin-2/js/sb-admin-2.min.js') }}"></script>
 <script src="{{ asset('sb-admin-2/vendor/chart.js/Chart.min.js') }}"></script>

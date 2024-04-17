@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Youtube;
+use App\Http\Controllers\Controller;
+use App\Models\Partner;
 use Illuminate\Http\Request;
 
-class YoutubeController extends Controller
+class PartnerController extends Controller
 {
     public function store(Request $request)
     {
@@ -22,7 +23,7 @@ class YoutubeController extends Controller
             $imageName = '';
         }
 
-        Youtube::create([
+        Partner::create([
             'title' => $request->title,
             'thumbnail' => $imageName,
             'link' => $request->link,
@@ -33,29 +34,8 @@ class YoutubeController extends Controller
 
     public function update(Request $request)
     {
-        if ($request->hasFile('thumbnail')) {
-            $validate = $request->validate(['thumbnail' => 'mimes:jpeg,png,jpg']);
-            if ($validate) {
-                $imageName = time() . '_' . $request->file('thumbnail')->getClientOriginalName();
-                $image = $request->file('thumbnail');
-                $image->move(public_path('assets/img/youtube/'), $imageName);
 
-                // delete image lama
-                $thumbnail_delete = Youtube::find($request->id)->thumbnail;
-                $file_path = public_path('assets/img/youtube/' . $thumbnail_delete);
-                unlink($file_path);
-            } else {
-                return redirect()->back()->withErrors($validate);
-            }
-        } else {
-            $imageName = $request->thumbnail_lama;
-        }
-
-        $update = Youtube::find($request->id)->update([
-            'title' => $request->title,
-            'thumbnail' => $imageName,
-            'link' => $request->link,
-        ]);
+        $update = Partner::find($request->id)->update($request->all());
         if ($update) {
             $pesan = "Youtube berhasil di update";
         } else {
@@ -66,7 +46,7 @@ class YoutubeController extends Controller
 
     public function destroy(string $id)
     {
-        $youtube = Youtube::find($id);
+        $youtube = Partner::find($id);
         $pesan = 'Data berhasil dihapus';
 
         if ($youtube->thumbnail != NULL) {
@@ -76,8 +56,9 @@ class YoutubeController extends Controller
             } else {
                 $pesan = 'Data gagal dihapus';
             }
+        } else {
         }
-        Youtube::where('id', $id)->delete();
+        Partner::where('id', $id)->delete();
         return redirect()->back()->with(['pesan' => $pesan]);
     }
 }
