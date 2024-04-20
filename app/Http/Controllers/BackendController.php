@@ -43,7 +43,7 @@ class BackendController extends Controller
     }
     public function team()
     {
-        $teams = Team::all();
+        $teams = Team::orderBy('urutan', 'asc')->get();
         return view("backend.team", ['teams' => $teams]);
     }
     public function inbox()

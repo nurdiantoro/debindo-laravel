@@ -9,14 +9,6 @@ use Illuminate\Support\Facades\Storage;
 class EventController extends Controller
 {
 
-    public function index()
-    {
-    }
-
-    public function create()
-    {
-    }
-
     public function store(Request $request)
     {
         if ($request->hasFile('logo')) {
@@ -32,7 +24,7 @@ class EventController extends Controller
             $imageName = '';
         }
 
-        Event::create([
+        $store = Event::create([
             'judul' => $request->judul,
             'tgl_mulai' => $request->tgl_mulai,
             'tgl_selesai' => $request->tgl_selesai,
@@ -42,17 +34,15 @@ class EventController extends Controller
             'eo' => $request->eo,
         ]);
 
-        return redirect()->route('dashboard_event')->with(['pesan' => 'Data berhasil terkirim']);
+        if ($store) {
+            $pesan = 'Data berhasil terkirim';
+        } else {
+            $pesan = 'Data gagal terkirim';
+        }
+        return redirect()->route('dashboard_event')->with(['pesan' => $pesan]);
     }
 
-    public function show(string $id)
-    {
-    }
-    public function edit(string $id)
-    {
-    }
-
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
         // Jika Ada logo, Upload dan Update logo baru, logo lama di hapus dari directory
         if ($request->hasFile('logo')) {

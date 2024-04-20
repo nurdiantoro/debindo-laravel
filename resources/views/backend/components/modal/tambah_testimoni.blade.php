@@ -24,7 +24,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="testimoni" class="form-label">testimoni</label>
-                        <input type="text" class="form-control" id="testimoni" name="testimoni">
+                        <textarea class="form-control" name="testimoni" id="testimoni" rows="10"></textarea>
                     </div>
                     <button type="submit" class=" btn btn-primary">Submit</button>
                 </form>

@@ -31,6 +31,39 @@ class YoutubeController extends Controller
         return redirect()->back()->with(['pesan' => 'Data berhasil terkirim']);
     }
 
+    public function update(Request $request)
+    {
+        if ($request->hasFile('thumbnail')) {
+            $validate = $request->validate(['thumbnail' => 'mimes:jpeg,png,jpg']);
+            if ($validate) {
+                $imageName = time() . '_' . $request->file('thumbnail')->getClientOriginalName();
+                $image = $request->file('thumbnail');
+                $image->move(public_path('assets/img/youtube/'), $imageName);
+
+                // delete image lama
+                $thumbnail_delete = Youtube::find($request->id)->thumbnail;
+                $file_path = public_path('assets/img/youtube/' . $thumbnail_delete);
+                unlink($file_path);
+            } else {
+                return redirect()->back()->withErrors($validate);
+            }
+        } else {
+            $imageName = $request->thumbnail_lama;
+        }
+
+        $update = Youtube::find($request->id)->update([
+            'title' => $request->title,
+            'thumbnail' => $imageName,
+            'link' => $request->link,
+        ]);
+        if ($update) {
+            $pesan = "Youtube berhasil di update";
+        } else {
+            $pesan = "Youtube gagal di update";
+        }
+        return redirect()->back()->with(["pesan" => $pesan]);
+    }
+
     public function destroy(string $id)
     {
         $youtube = Youtube::find($id);
@@ -43,7 +76,6 @@ class YoutubeController extends Controller
             } else {
                 $pesan = 'Data gagal dihapus';
             }
-        } else {
         }
         Youtube::where('id', $id)->delete();
         return redirect()->back()->with(['pesan' => $pesan]);

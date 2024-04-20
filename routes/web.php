@@ -52,6 +52,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/team', [BackendController::class, 'team'])->name('dashboard_team');
     Route::get('/dashboard/inbox', [BackendController::class, 'inbox'])->name('dashboard_inbox');
 
+    // store
     Route::post('/dashboard/event/store', [EventController::class, 'store'])->name('dashboard_event_store');
     Route::post('/dashboard/event_carousel/store', [EventCarouselController::class, 'store'])->name('dashboard_event_store');
     Route::post('/dashboard/youtube/store', [YoutubeController::class, 'store'])->name('dashboard_youtube_store');
@@ -59,6 +60,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/dashboard/news/store', [NewsController::class, 'store'])->name('dashboard_news_store');
     Route::post('/dashboard/team/store', [TeamController::class, 'store'])->name('dashboard_team_store');
 
+    // update
+    Route::post('/dashboard/event/update', [EventController::class, 'update'])->name('dashboard_event_update');
+    Route::post('/dashboard/event_carousel/update', [EventCarouselController::class, 'update'])->name('dashboard_event_update');
+    Route::post('/dashboard/youtube/update', [YoutubeController::class, 'update'])->name('dashboard_youtube_update');
+    Route::post('/dashboard/testimoni/update', [TestimoniController::class, 'update'])->name('dashboard_testimoni_update');
+    Route::post('/dashboard/news/update', [NewsController::class, 'update'])->name('dashboard_news_update');
+    Route::post('/dashboard/team/update', [TeamController::class, 'update'])->name('dashboard_team_update');
+
+    // delete
     Route::get('/dashboard/event/delete/{id}', [EventController::class, 'destroy'])->name('dashboard_event_delete');
     Route::get('/dashboard/event_carousel/delete/{id}', [EventCarouselController::class, 'destroy'])->name('dashboard_event_carousel_delete');
     Route::get('/dashboard/youtube/delete/{id}', [YoutubeController::class, 'destroy'])->name('dashboard_youtube_delete');

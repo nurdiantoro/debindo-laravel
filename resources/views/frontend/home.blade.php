@@ -1,7 +1,7 @@
 @extends('frontend.components.template')
 @section('content')
     <div id="homepage">
-        <div class="header">
+        <div class="header" style="background-image: url('assets/img/MRA_6794.jpg');">
             <div class="text-center title">
                 <h1>ALL EVENT SPECIALISTS</h1>
                 <a href="{{ url('event') }}">

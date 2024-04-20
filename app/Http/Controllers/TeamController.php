@@ -35,12 +35,24 @@ class TeamController extends Controller
         return redirect()->back()->with(['pesan' => 'Data berhasil terkirim']);
     }
 
+    public function update(Request $request)
+    {
+
+        $update = Team::find($request->id)->update($request->all());
+        if ($update) {
+            $pesan = "Team berhasil di update";
+        } else {
+            $pesan = "Team gagal di update";
+        }
+        return redirect()->back()->with(["pesan" => $pesan]);
+    }
+
     public function destroy(string $id)
     {
         $team = Team::find($id);
         $pesan = 'Data berhasil dihapus';
 
-        if ($team->foto != NULL) {
+        if ($team->foto != 'default.jpg') {
             $file_path = public_path('assets/img/team/' . $team->foto);
             if (unlink($file_path)) {
                 $pesan = 'Data berhasil dihapus';
