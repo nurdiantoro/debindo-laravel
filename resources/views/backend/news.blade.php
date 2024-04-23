@@ -50,6 +50,8 @@
 
         @include('backend.components.modal.tambah_news')
         @include('backend.components.modal.edit_news')
+        @include('backend.components.modal.tambah_news')
+        @include('backend.components.modal.edit_news')
 
     </div>
 @endsection

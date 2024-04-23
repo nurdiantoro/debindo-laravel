@@ -31,6 +31,8 @@
                                 <div style="height: 100px; width: 100px">
                                     <img src="{{ asset('assets/img/team/' . $team->foto) }}" class="img-fluid"
                                         style="height: 100px; width:auto;">
+                                    <img src="{{ asset('assets/img/team/' . $team->foto) }}" class="img-fluid"
+                                        style="height: 100px; width:auto;">
                                 </div>
                             </td>
                             <td>{{ $team->nama }}</td>

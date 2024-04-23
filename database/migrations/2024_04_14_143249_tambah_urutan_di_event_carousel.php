@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('event_carousel', function (Blueprint $table) {
-            $table->integer('urutan')->nullable()->after('foto');
+            $table->string('urutan')->nullable()->after('foto');
         });
     }
 
