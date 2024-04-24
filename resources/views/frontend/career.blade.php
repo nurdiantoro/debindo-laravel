@@ -1,8 +1,9 @@
 @extends('frontend.components.template')
 @section('content')
     <div id="career">
-        <div class="header">
+        <div class="header" style="display: flex; flex-direction: column;">
             <h1>COME WORK <span style="color:var(--warna-02);">WITH US</span></h1>
+            <p style="color:var(--white-100)">career.debindo@gmail.com</p>
         </div>
         <div class="container">
             <div class="row justify-content-center mb-5">

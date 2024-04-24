@@ -12,7 +12,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item {{ Request::segment(2) == '' ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('dashboard') }}">
             <span>Dashboard</span></a>
     </li>
@@ -20,24 +20,23 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-
-
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{ url('dashboard/event') }}"> <span>Event</span></a>
+    <li class="nav-item {{ Request::segment(2) == 'partner' ? 'active' : '' }}">
+        <a class="nav-link " href="{{ url('dashboard/partner') }}"> <span>Partner</span></a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{ Request::segment(2) == 'event' ? 'active' : '' }}">
+        <a class="nav-link " href="{{ url('dashboard/event') }}"> <span>Event</span></a>
+    </li>
+    <li class="nav-item {{ Request::segment(2) == 'news' ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('dashboard/news') }}"> <span>News</span></a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{ Request::segment(2) == 'career' ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('dashboard/career') }}"> <span>Career</span></a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{ Request::segment(2) == 'team' ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('dashboard/team') }}"> <span>Team</span></a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{ Request::segment(2) == 'inbox' ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('dashboard/inbox') }}"> <span>Inbox</span></a>
     </li>
-
-
 </ul>

@@ -8,7 +8,7 @@
         </div>
 
         <div class="mb-5">
-            <table id="example" class="display" style="width:100%">
+            <table id="table_inbox" class="display" style="width:100%">
                 <thead>
                     <tr>
                         <th>Nama</th>

@@ -10,12 +10,12 @@ class PartnerController extends Controller
 {
     public function store(Request $request)
     {
-        if ($request->hasFile('thumbnail')) {
-            $validate = $request->validate(['thumbnail' => 'mimes:jpeg,png,jpg']);
+        if ($request->hasFile('logo')) {
+            $validate = $request->validate(['logo' => 'mimes:jpeg,png,jpg']);
             if ($validate) {
-                $imageName = time() . '_' . $request->file('thumbnail')->getClientOriginalName();
-                $image = $request->file('thumbnail');
-                $image->move(public_path('assets/img/youtube/'), $imageName);
+                $imageName = time() . '_' . $request->file('logo')->getClientOriginalName();
+                $image = $request->file('logo');
+                $image->move(public_path('assets/img/partner/'), $imageName);
             } else {
                 return redirect()->back()->withErrors($validate);
             }
@@ -23,10 +23,22 @@ class PartnerController extends Controller
             $imageName = '';
         }
 
+        if ($request->urutan == null) {
+            $urutan = Partner::all()->count() + 1;
+        } else {
+            $urutan = $request->urutan;
+        }
+
+        if ($request->name == null) {
+            $name = $imageName;
+        } else {
+            $name = $request->name;
+        }
+
         Partner::create([
-            'title' => $request->title,
-            'thumbnail' => $imageName,
-            'link' => $request->link,
+            'logo' => $imageName,
+            'urutan' => $urutan,
+            'name' => $name,
         ]);
 
         return redirect()->back()->with(['pesan' => 'Data berhasil terkirim']);
@@ -35,22 +47,53 @@ class PartnerController extends Controller
     public function update(Request $request)
     {
 
-        $update = Partner::find($request->id)->update($request->all());
-        if ($update) {
-            $pesan = "Youtube berhasil di update";
+        if ($request->hasFile('logo')) {
+            $validate = $request->validate(['logo' => 'mimes:jpeg,png,jpg']);
+            if ($validate) {
+                $imageName = time() . '_' . $request->file('logo')->getClientOriginalName();
+                $image = $request->file('logo');
+                $image->move(public_path('assets/img/partner/'), $imageName);
+
+                // delete image lama
+                $logo_delete = Partner::find($request->id)->logo;
+                $file_path = public_path('assets/img/partner/' . $logo_delete);
+                unlink($file_path);
+            } else {
+                return redirect()->back()->withErrors($validate);
+            }
         } else {
-            $pesan = "Youtube gagal di update";
+            $imageName = $request->logo_lama;
         }
-        return redirect()->back()->with(["pesan" => $pesan]);
+
+        $update = Partner::find($request->id)->update([
+            'logo' => $imageName,
+            'urutan' => $request->urutan,
+            'name' => $request->name,
+        ]);
+        if ($update) {
+            $pesan = "partner berhasil di update";
+        } else {
+            $pesan = "partner gagal di update";
+        }
+        return redirect('/dashboard/partner')->with(["pesan" => $pesan]);
+    }
+
+    public function updateUrutan(Request $request)
+    {
+        // dd($request->all());
+        foreach ($request->id as $id) {
+            Partner::where('id', $id)->update(['urutan' => $request->urutan[$id]]);
+        };
+        return redirect('/dashboard/partner')->with(['pesan' => 'Urutan berhasil diupdate']);
     }
 
     public function destroy(string $id)
     {
-        $youtube = Partner::find($id);
+        $partner = Partner::find($id);
         $pesan = 'Data berhasil dihapus';
 
-        if ($youtube->thumbnail != NULL) {
-            $file_path = public_path('assets/img/youtube/' . $youtube->thumbnail);
+        if ($partner->logo != NULL) {
+            $file_path = public_path('assets/img/partner/' . $partner->logo);
             if (unlink($file_path)) {
                 $pesan = 'Data berhasil dihapus';
             } else {

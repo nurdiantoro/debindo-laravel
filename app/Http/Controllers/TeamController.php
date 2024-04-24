@@ -37,6 +37,35 @@ class TeamController extends Controller
 
     public function update(Request $request)
     {
+        if ($request->hasFile('foto')) {
+            $validate = $request->validate(['foto' => 'mimes:jpeg,png,jpg']);
+            if ($validate) {
+                // upload image baru
+                $imageName = time() . '_' . $request->file('foto')->getClientOriginalName();
+                $image = $request->file('foto');
+                $image->move(public_path('assets/img/team/'), $imageName);
+
+                // delete image lama
+                $foto_delete = Team::find($request->id)->foto;
+                $file_path = public_path('assets/img/team/' . $foto_delete);
+                unlink($file_path);
+            } else {
+                return redirect()->back()->withErrors($validate);
+            }
+        } else {
+            $imageName = $request->foto_lama;
+        }
+
+        $update = Team::find($request->id)->update($request->all());
+        $update = Team::find($request->id)->update([
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+            'tingkat_jabatan' => $request->tingkat_jabatan,
+            'email' => $request->email,
+            'linkedin' => $request->linkedin,
+            'foto' => $imageName,
+            'urutan' => $request->urutan,
+        ]);
 
         $update = Team::find($request->id)->update($request->all());
         if ($update) {

@@ -8,6 +8,7 @@ use App\Models\Event;
 use App\Models\EventCarousel;
 use App\Models\News;
 use App\Models\NewsCarousel;
+use App\Models\Partner;
 use App\Models\Team;
 use App\Models\Testimoni;
 use App\Models\Youtube;
@@ -20,12 +21,14 @@ class FrontendController extends Controller
         $highlights = News::limit(4)->get();
         $testimoni = Testimoni::all();
         $youtubes = Youtube::all();
+        $partners = Partner::orderBy('urutan', 'asc')->get();
         $title = "Debindo | All Event Spesialists";
         return view('frontend.home', [
             'highlights' => $highlights,
             'testimoni' => $testimoni,
             'youtubes' => $youtubes,
-            'title' => $title
+            'title' => $title,
+            'partners' => $partners
         ]);
     }
 

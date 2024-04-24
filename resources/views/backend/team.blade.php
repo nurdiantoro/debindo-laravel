@@ -31,8 +31,6 @@
                                 <div style="height: 100px; width: 100px">
                                     <img src="{{ asset('assets/img/team/' . $team->foto) }}" class="img-fluid"
                                         style="height: 100px; width:auto;">
-                                    <img src="{{ asset('assets/img/team/' . $team->foto) }}" class="img-fluid"
-                                        style="height: 100px; width:auto;">
                                 </div>
                             </td>
                             <td>{{ $team->nama }}</td>
@@ -46,6 +44,7 @@
                                     data-nama="{{ $team->nama }}" data-jabatan="{{ $team->jabatan }}"
                                     data-tingkat_jabatan="{{ $team->tingkat_jabatan }}" data-email="{{ $team->email }}"
                                     data-linkedin="{{ $team->linkedin }}" data-foto="{{ $team->foto }}"
+                                    data-urutan="{{ $team->urutan }}"
                                     class="btn btn-sm btn-primary mr-2 tombol_edit_team">Edit</a>
 
                                 <a href="{{ url('dashboard/team/delete/' . $team->id) }}"
@@ -56,8 +55,6 @@
                 </tbody>
             </table>
         </div>
-
-
 
         @include('backend.components.modal.tambah_team')
         @include('backend.components.modal.edit_team')

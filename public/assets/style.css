@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 :root {
-	--warna-01: rgb(20, 67, 143);
-	--warna-02: rgb(255, 203, 4);
+	--warna-01: #14438f;
+	--warna-02: #ffcb04;
 	--black-100: #000000;
 	--black-90: #3F3F3F;
 	--black-50: #808080;
@@ -72,8 +72,8 @@ body {
 	right: 0;
 	left: 0;
 	z-index: 1030;
-	background-color: var(--white-100);
-	border-bottom: 1px solid var(--black-30);
+	background-color: var(--warna-01);
+	border-bottom: 1px solid var(--warna-02);
 	padding: 0px !important;
 }
 
@@ -108,7 +108,7 @@ body {
 	padding: 20px 5px;
 	font-size: 12px;
 	font-weight: var(--semi-bold);
-	color: var(--black-90);
+	color: var(--white-100);
 }
 
 .nav-item a::before {
@@ -120,20 +120,20 @@ body {
 	content: "";
 	width: 0%;
 	height: 3px;
-	background-color: var(--warna-01);
+	background-color: var(--warna-02);
 	width: 0%;
 }
 
 .nav-item:hover a,
 .nav-item a:hover::before {
-	color: var(--warna-01);
+	color: var(--warna-02);
 	width: 100%;
 }
 
 .nav-item.active a,
 .nav-item.active a::before {
 	width: 100% !important;
-	color: var(--warna-01) !important;
+	color: var(--warna-02) !important;
 }
 
 .navbar-nav.social-media {

@@ -75,59 +75,9 @@
                         <h4>Trusted by The Leading Professional Network Partners</h4>
                     </div>
                     <div class="carousel-partners owl-theme owl-carousel">
-                        {{-- @foreach ($partners as $partner) --}}
-                        <img src="{{ asset('assets/img/partner/asperapi.jpg') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/Asosiasi Pengusaha Indonesia.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/Bank Mandiri Logo.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/Bank Sentral Republik Indonesia.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/bhayangkari.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/dahana.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/dekranas.jpg') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/H HD Defend ID.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/hipmi.png') }}"alt="">
-                        <img src="{{ asset('assets/img/partner/Indonesia Eximbank.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/indonesian diaspora.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/INDONESIAN EXPORTERS ASSOCIATION.webp') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/iwapi.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/kadin.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/kemenbumn.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/KemenkoMaritim.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/kementerian dalam negeri.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/Kementerian INVESTASI Republik Indonesia.png') }}"
-                            alt="">
-                        <img src="{{ asset('assets/img/partner/Kementerian Kesehatan Republik Indonesia.png') }}"
-                            alt="">
-                        <img src="{{ asset('assets/img/partner/kementerian keuangan.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/Kementerian Komunikasi dan Informatika Republik Indonesia.png') }}"
-                            alt="">
-                        <img src="{{ asset('assets/img/partner/Kementerian Koperasi dan Usaha Kecil dan Menengah Republik Indonesia.png') }}"
-                            alt="">
-                        <img src="{{ asset('assets/img/partner/kementerian luar negeri.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/Kementerian Pariwisata dan Ekonomi Kreatif Republik Indonesia.png') }}"
-                            alt="">
-                        <img src="{{ asset('assets/img/partner/Kementerian Perencanaan Pembangunan Nasional Republik Indonesia.png') }}"
-                            alt="">
-                        <img src="{{ asset('assets/img/partner/kementerian perindustrian.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/Kementerian PERTANIAN Republik Indonesia.png') }}"
-                            alt="">
-                        <img src="{{ asset('assets/img/partner/Muhammadiyah.jpg') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/P2NU.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/PAL INDONESIA.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/Pegadaian.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/Pertamina.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/pindad.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/PNM.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/PP Pembangunan Perumahan.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/PT DI.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/PT Len Industri (Persero).png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/Pupuk Indonesia.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/rumah bumn.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/Rumah Kreatif BUMN.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/Setneg_RI.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/Telkom.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/Waskita.png') }}" alt="">
-                        <img src="{{ asset('assets/img/partner/YRKI.png') }}" alt="">
-                        {{-- @endforeach --}}
+                        @foreach ($partners as $partner)
+                            <img src="{{ asset('assets/img/partner/' . $partner->logo) }}" alt="">
+                        @endforeach
                     </div>
 
                     <script>
@@ -174,8 +124,7 @@
                     <div class="card-flex">
                         <div class="card-wrapper">
                             <div class="card">
-                                <img src="{{ asset('assets/img/event/Web_Banner_TEI_(Debindo)(1).jpg') }}"
-                                    alt="">
+                                <img src="{{ asset('assets/img/event/Web_Banner_TEI_(Debindo)(1).jpg') }}" alt="">
                                 <p class="nama">Trade Expo Indonesia</p>
                                 <p class="tanggal">9 - 12 October 2024</p>
                                 <p class="lokasi">ICE BSD, Tangerang</p>

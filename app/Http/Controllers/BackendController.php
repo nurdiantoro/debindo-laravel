@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\EventCarousel;
 use App\Models\inbox;
 use App\Models\News;
+use App\Models\Partner;
 use App\Models\Team;
 use App\Models\Testimoni;
 use App\Models\Youtube;
@@ -24,6 +25,12 @@ class BackendController extends Controller
             "testimonials" => $testimonials,
             "event_carousels" => $event_carousels,
         ]);
+    }
+
+    public function partner()
+    {
+        $partners = Partner::all();
+        return view("backend.partner", ['partners' => $partners]);
     }
 
     public function event()
@@ -50,5 +57,39 @@ class BackendController extends Controller
     {
         $inboxs = Inbox::orderby('id', 'desc')->get();
         return view("backend.inbox", ['inboxs' => $inboxs]);
+    }
+
+    // Update View
+    public function update_partner($id)
+    {
+        $data = Partner::find($id);
+        return view("backend.update_partner", ['data' => $data]);
+    }
+
+    public function update_partner_urutan()
+    {
+        $data = Partner::all();
+        return view("backend.update_partner_urutan", ['data' => $data]);
+    }
+
+    public function update_event($id)
+    {
+        $data = Event::find($id);
+        return view("backend.update_event", ['data' => $data]);
+    }
+    public function update_news($id)
+    {
+        $data = News::find($id);
+        return view("backend.update_news", ['data' => $data]);
+    }
+    public function update_career($id)
+    {
+        $data = Career::find($id);
+        return view("backend.update_career", ['data' => $data]);
+    }
+    public function update_team($id)
+    {
+        $data = Team::find($id);
+        return view("backend.update_team", ['data' => $data]);
     }
 }
