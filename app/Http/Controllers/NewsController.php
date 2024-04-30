@@ -50,14 +50,15 @@ class NewsController extends Controller
         $news = News::find($id);
         $pesan = 'Data berhasil dihapus';
 
-        if ($news->image != NULL) {
-            $file_path = public_path('assets/img/news/' . $news->image);
-            if (unlink($file_path)) {
-                $pesan = 'Data berhasil dihapus';
-            } else {
-                $pesan = 'Data gagal dihapus';
-            }
-        }
+        // delete image lama
+        // if ($news->image != NULL) {
+        //     $file_path = public_path('assets/img/news/' . $news->image);
+        //     if (unlink($file_path)) {
+        //         $pesan = 'Data berhasil dihapus';
+        //     } else {
+        //         $pesan = 'Data gagal dihapus';
+        //     }
+        // }
         News::where('id', $id)->delete();
         return redirect()->back()->with(['pesan' => $pesan]);
     }

@@ -41,9 +41,9 @@ class YoutubeController extends Controller
                 $image->move(public_path('assets/img/youtube/'), $imageName);
 
                 // delete image lama
-                $thumbnail_delete = Youtube::find($request->id)->thumbnail;
-                $file_path = public_path('assets/img/youtube/' . $thumbnail_delete);
-                unlink($file_path);
+                // $thumbnail_delete = Youtube::find($request->id)->thumbnail;
+                // $file_path = public_path('assets/img/youtube/' . $thumbnail_delete);
+                // unlink($file_path);
             } else {
                 return redirect()->back()->withErrors($validate);
             }
@@ -69,14 +69,15 @@ class YoutubeController extends Controller
         $youtube = Youtube::find($id);
         $pesan = 'Data berhasil dihapus';
 
-        if ($youtube->thumbnail != NULL) {
-            $file_path = public_path('assets/img/youtube/' . $youtube->thumbnail);
-            if (unlink($file_path)) {
-                $pesan = 'Data berhasil dihapus';
-            } else {
-                $pesan = 'Data gagal dihapus';
-            }
-        }
+        // delete image lama
+        // if ($youtube->thumbnail != NULL) {
+        //     $file_path = public_path('assets/img/youtube/' . $youtube->thumbnail);
+        //     if (unlink($file_path)) {
+        //         $pesan = 'Data berhasil dihapus';
+        //     } else {
+        //         $pesan = 'Data gagal dihapus';
+        //     }
+        // }
         Youtube::where('id', $id)->delete();
         return redirect()->back()->with(['pesan' => $pesan]);
     }

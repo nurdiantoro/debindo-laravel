@@ -46,9 +46,9 @@ class TeamController extends Controller
                 $image->move(public_path('assets/img/team/'), $imageName);
 
                 // delete image lama
-                $foto_delete = Team::find($request->id)->foto;
-                $file_path = public_path('assets/img/team/' . $foto_delete);
-                unlink($file_path);
+                // $foto_delete = Team::find($request->id)->foto;
+                // $file_path = public_path('assets/img/team/' . $foto_delete);
+                // unlink($file_path);
             } else {
                 return redirect()->back()->withErrors($validate);
             }
@@ -81,15 +81,16 @@ class TeamController extends Controller
         $team = Team::find($id);
         $pesan = 'Data berhasil dihapus';
 
-        if ($team->foto != 'default.jpg') {
-            $file_path = public_path('assets/img/team/' . $team->foto);
-            if (unlink($file_path)) {
-                $pesan = 'Data berhasil dihapus';
-            } else {
-                $pesan = 'Data gagal dihapus';
-            }
-        } else {
-        }
+        // delete image lama
+        // if ($team->foto != 'default.jpg') {
+        //     $file_path = public_path('assets/img/team/' . $team->foto);
+        //     if (unlink($file_path)) {
+        //         $pesan = 'Data berhasil dihapus';
+        //     } else {
+        //         $pesan = 'Data gagal dihapus';
+        //     }
+        // } else {
+        // }
         Team::where('id', $id)->delete();
         return redirect()->back()->with(['pesan' => $pesan]);
     }

@@ -55,8 +55,8 @@ class EventController extends Controller
                 $image->move(public_path('assets/img/event/'), $imageName);
 
                 // Hapus Logo lama
-                $file_path = public_path('assets/img/event/' . Event::find($id)->logo);
-                unlink($file_path);
+                // $file_path = public_path('assets/img/event/' . Event::find($id)->logo);
+                // unlink($file_path);
             } else {
                 return redirect()->back()->withErrors($validate);
             }
@@ -64,7 +64,7 @@ class EventController extends Controller
             $imageName = $request->logo_lama;
         }
 
-        Event::where('id', $id)->update([
+        Event::where('id', $request->id)->update([
             'judul' => $request->judul,
             'tgl_mulai' => $request->tgl_mulai,
             'tgl_selesai' => $request->tgl_selesai,
@@ -82,15 +82,16 @@ class EventController extends Controller
         $event = Event::find($id);
         $pesan = 'Data berhasil dihapus';
 
-        if ($event->logo != NULL) {
-            $file_path = public_path('assets/img/event/' . $event->logo);
-            if (unlink($file_path)) {
-                $pesan = 'Data berhasil dihapus';
-            } else {
-                $pesan = 'Data gagal dihapus';
-            }
-        } else {
-        }
+        // delete image lama
+        // if ($event->logo != NULL) {
+        //     $file_path = public_path('assets/img/event/' . $event->logo);
+        //     if (unlink($file_path)) {
+        //         $pesan = 'Data berhasil dihapus';
+        //     } else {
+        //         $pesan = 'Data gagal dihapus';
+        //     }
+        // } else {
+        // }
         Event::where('id', $id)->delete();
         return redirect('dashboard/event')->with(['pesan' => $pesan]);
     }

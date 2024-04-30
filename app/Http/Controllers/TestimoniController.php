@@ -44,9 +44,9 @@ class TestimoniController extends Controller
                 $image->move(public_path('assets/img/testimoni/'), $imageName);
 
                 // delete image lama
-                $foto_delete = Testimoni::find($request->id)->foto;
-                $file_path = public_path('assets/img/testimoni/' . $foto_delete);
-                unlink($file_path);
+                // $foto_delete = Testimoni::find($request->id)->foto;
+                // $file_path = public_path('assets/img/testimoni/' . $foto_delete);
+                // unlink($file_path);
             } else {
                 return redirect()->back()->withErrors($validate);
             }
@@ -73,15 +73,16 @@ class TestimoniController extends Controller
         $testimoni = Testimoni::find($id);
         $pesan = 'Data berhasil dihapus';
 
-        if ($testimoni->thumbnail != NULL) {
-            $file_path = public_path('assets/img/testimoni/' . $testimoni->thumbnail);
-            if (unlink($file_path)) {
-                $pesan = 'Data berhasil dihapus';
-            } else {
-                $pesan = 'Data gagal dihapus';
-            }
-        } else {
-        }
+        // delete image lama
+        // if ($testimoni->thumbnail != NULL) {
+        //     $file_path = public_path('assets/img/testimoni/' . $testimoni->thumbnail);
+        //     if (unlink($file_path)) {
+        //         $pesan = 'Data berhasil dihapus';
+        //     } else {
+        //         $pesan = 'Data gagal dihapus';
+        //     }
+        // } else {
+        // }
         Testimoni::where('id', $id)->delete();
         return redirect()->back()->with(['pesan' => $pesan]);
     }

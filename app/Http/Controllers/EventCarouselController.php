@@ -43,9 +43,9 @@ class EventCarouselController extends Controller
                 $image->move(public_path('assets/img/event/'), $imageName);
 
                 // delete image lama
-                $foto_delete = EventCarousel::find($request->id)->foto;
-                $file_path = public_path('assets/img/event/' . $foto_delete);
-                unlink($file_path);
+                // $foto_delete = EventCarousel::find($request->id)->foto;
+                // $file_path = public_path('assets/img/event/' . $foto_delete);
+                // unlink($file_path);
             } else {
                 return redirect()->back()->withErrors($validate);
             }
@@ -72,15 +72,16 @@ class EventCarouselController extends Controller
         $event_carousel = EventCarousel::find($id);
         $pesan = 'Data berhasil dihapus';
 
-        if ($event_carousel->foto != NULL) {
-            $file_path = public_path('assets/img/event/' . $event_carousel->foto);
-            if (unlink($file_path)) {
-                $pesan = 'Data berhasil dihapus';
-            } else {
-                $pesan = 'Data gagal dihapus';
-            }
-        } else {
-        }
+        // delete image lama
+        // if ($event_carousel->foto != NULL) {
+        //     $file_path = public_path('assets/img/event/' . $event_carousel->foto);
+        //     if (unlink($file_path)) {
+        //         $pesan = 'Data berhasil dihapus';
+        //     } else {
+        //         $pesan = 'Data gagal dihapus';
+        //     }
+        // } else {
+        // }
         EventCarousel::where('id', $id)->delete();
         return redirect()->back()->with(['pesan' => $pesan]);
     }

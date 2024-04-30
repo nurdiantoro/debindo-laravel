@@ -55,9 +55,9 @@ class PartnerController extends Controller
                 $image->move(public_path('assets/img/partner/'), $imageName);
 
                 // delete image lama
-                $logo_delete = Partner::find($request->id)->logo;
-                $file_path = public_path('assets/img/partner/' . $logo_delete);
-                unlink($file_path);
+                // $logo_delete = Partner::find($request->id)->logo;
+                // $file_path = public_path('assets/img/partner/' . $logo_delete);
+                // unlink($file_path);
             } else {
                 return redirect()->back()->withErrors($validate);
             }
@@ -92,15 +92,16 @@ class PartnerController extends Controller
         $partner = Partner::find($id);
         $pesan = 'Data berhasil dihapus';
 
-        if ($partner->logo != NULL) {
-            $file_path = public_path('assets/img/partner/' . $partner->logo);
-            if (unlink($file_path)) {
-                $pesan = 'Data berhasil dihapus';
-            } else {
-                $pesan = 'Data gagal dihapus';
-            }
-        } else {
-        }
+        // delete image lama
+        // if ($partner->logo != NULL) {
+        //     $file_path = public_path('assets/img/partner/' . $partner->logo);
+        //     if (unlink($file_path)) {
+        //         $pesan = 'Data berhasil dihapus';
+        //     } else {
+        //         $pesan = 'Data gagal dihapus';
+        //     }
+        // } else {
+        // }
         Partner::where('id', $id)->delete();
         return redirect()->back()->with(['pesan' => $pesan]);
     }
