@@ -73,7 +73,7 @@ body {
 	left: 0;
 	z-index: 1030;
 	background-color: var(--warna-01);
-	border-bottom: 1px solid var(--warna-02);
+	border-bottom: 2px solid var(--warna-02);
 	padding: 0px !important;
 }
 
