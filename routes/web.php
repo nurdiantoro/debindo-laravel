@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/event', [FrontendController::class, 'event'])->name('event');
 Route::get('/news', [FrontendController::class, 'news'])->name('news');
+Route::get('/news/{slug}', [FrontendController::class, 'news_detail'])->name('news_detail');
 Route::get('/career', [FrontendController::class, 'career'])->name('career');
 Route::get('/team', [FrontendController::class, 'team'])->name('team');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');

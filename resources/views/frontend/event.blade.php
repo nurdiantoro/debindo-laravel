@@ -11,7 +11,7 @@
                         <div class="title">{{ $carousel->title }}
                             <p>{{ $carousel->subtitle }}</p>
                         </div>
-                        <img src="{{ asset('assets/img/event/' . $carousel->foto) }}" alt="" class="img-fluid w-100">
+                        <img src="{{ asset('storage/img/event/' . $carousel->foto) }}" alt="" class="img-fluid w-100">
                     </div>
                 @endforeach
             </div>
@@ -45,11 +45,11 @@
                         <a>
                             <div class="card-event">
                                 <?php if ($debindo->lokasi == 'Virtual') {?>
-                                <object data="{{ url('assets/img/event/virtual-event.svg') }}" class="virtual"></object>
+                                <object data="{{ url('storage/img/event/virtual-event.svg') }}" class="virtual"></object>
                                 <?php }?>
 
                                 <div class="logo-wrapper">
-                                    <img src="{{ url('assets/img/event') . '/' . $debindo->logo }}">
+                                    <img src="{{ url('storage/img/event') . '/' . $debindo->logo }}">
                                 </div>
                                 <span>{{ $debindo->judul }}</span>
                             </div>

@@ -9,12 +9,12 @@ class NewsController extends Controller
 {
     public function store(Request $request)
     {
+        // dd($request->isi);
         if ($request->hasFile('image')) {
             $validate = $request->validate(['image' => 'mimes:jpeg,png,jpg']);
             if ($validate) {
                 $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
-                $image = $request->file('image');
-                $image->move(public_path('assets/img/news/'), $imageName);
+                $request->file('image')->storeAs('img/news/', $imageName, 'public');
             } else {
                 return redirect()->back()->withErrors($validate);
             }
@@ -30,7 +30,7 @@ class NewsController extends Controller
             'image' => $imageName,
         ]);
 
-        return redirect()->back()->with(['pesan' => 'Data berhasil terkirim']);
+        return redirect()->back()->with(['success' => 'News Berhasil Ditambahkan', 'console' => 'Kamu menambahkan news ' . $request->judul]);
     }
 
     public function update(Request $request)
@@ -42,7 +42,7 @@ class NewsController extends Controller
         } else {
             $pesan = "News gagal di update";
         }
-        return redirect()->back()->with(["pesan" => $pesan]);
+        return redirect('dashboard/news')->with(["pesan" => $pesan]);
     }
 
     public function destroy(string $id)

@@ -2,7 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2 col-12">
-                <img src="{{ url('assets/img/debindo-logo-negative.svg') }}" alt="debindo-logo-negative" class="img-fluid">
+                <img src="{{ url('storage/img/debindo-logo-negative.svg') }}" alt="debindo-logo-negative"
+                    class="img-fluid">
             </div>
             <div class="col-md-6 col-6">
                 <div class="title">Our Location</div>

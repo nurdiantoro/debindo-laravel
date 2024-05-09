@@ -26,10 +26,9 @@
                         <label for="nama_penulis" class="form-label">nama_penulis</label>
                         <input type="text" class="form-control" id="nama_penulis" name="nama_penulis">
                     </div>
-                    <div class="mb-3">
-                        <label for="isi" class="form-label">isi</label>
-                        <input type="text" class="form-control" id="isi" name="isi">
-                    </div>
+
+                    <input id="x" type="hidden" name="isi">
+                    <trix-editor input="x" name="content"></trix-editor>
                     <button type="submit" class=" btn btn-primary">Submit</button>
                 </form>
             </div>

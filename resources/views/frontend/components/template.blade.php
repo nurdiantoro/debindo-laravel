@@ -18,7 +18,7 @@
     @include('frontend.components.watermark')
     <?php
     $description = 'Exhibitors at DEBINDO will find all manner and dimensions of premises to suit every conceivable idea and concept. The possibilities for individual planning, combined with excellent service from our experienced officers, make DEBINDO the ideal partner for you to participate on our trade shows, conferences, congresses and special events.';
-    $image = url('assets/img/debindo-logo-01.png');
+    $image = url('storage/img/debindo-logo-01.png');
     ?>
 
     <!-- SEO -->
@@ -42,7 +42,7 @@
     <meta property="og:url" content="{{ url('') }}" />
 
     <title>Debindo | {{ $title }}</title>
-    <link rel="icon" type="image/x-icon" href="{{ url('assets/img/debindo-logo.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url('storage/img/debindo-logo.png') }}">
 
     <!-- CSS -->
     <link href="{{ url('assets/style.css') }}" rel="stylesheet">

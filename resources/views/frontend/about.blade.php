@@ -11,7 +11,7 @@
                 <div class="logo-wrapper">
                     <div class="">
                         <a href="https://debindo.com/">
-                            <img src="{{ url('assets/img/about/Logo Debindo dengan tagline-01.png') }}"
+                            <img src="{{ url('storage/img/about/Logo Debindo dengan tagline-01.png') }}"
                                 style="max-width:120px !important">
                         </a>
                     </div>
@@ -30,32 +30,32 @@
                 <div class="logo-wrapper" style="padding-top:0px">
                     <div class="logo">
                         <a href="http://debindo-ite.com/">
-                            <img src="{{ url('assets/img/about/Asset 13.png') }}" alt="">
+                            <img src="{{ url('storage/img/about/Asset 13.png') }}" alt="">
                         </a>
                     </div>
                     <div class="logo">
                         <a href="https://debindomitratama.com/">
-                            <img src="{{ url('assets/img/about/Asset 14.png') }}" alt="">
+                            <img src="{{ url('storage/img/about/Asset 14.png') }}" alt="">
                         </a>
                     </div>
                     <div class="logo">
                         <a>
-                            <img src="{{ url('assets/img/about/Asset 15.png') }}" alt="">
+                            <img src="{{ url('storage/img/about/Asset 15.png') }}" alt="">
                         </a>
                     </div>
                     <div class="logo">
                         <a>
-                            <img src="{{ url('assets/img/about/Asset 16.png') }}" alt="">
+                            <img src="{{ url('storage/img/about/Asset 16.png') }}" alt="">
                         </a>
                     </div>
                     <div class="logo">
                         <a>
-                            <img src="{{ url('assets/img/about/Asset 17.png') }}" alt="">
+                            <img src="{{ url('storage/img/about/Asset 17.png') }}" alt="">
                         </a>
                     </div>
                     <div class="logo">
                         <a>
-                            <img src="{{ url('assets/img/about/Asset 18.png') }}" alt="">
+                            <img src="{{ url('storage/img/about/Asset 18.png') }}" alt="">
                         </a>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="p-5">
-                                <img src="{{ url('assets/img/about/foto-bod.png') }}" alt="foto-bod-debindo"
+                                <img src="{{ url('storage/img/about/foto-bod.png') }}" alt="foto-bod-debindo"
                                     class="img-fluid">
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="image-wrapper">
-                                <img src="{{ url('assets/img/about/logo-debindo-kan-iso.png') }}" class="img-fluid">
+                                <img src="{{ url('storage/img/about/logo-debindo-kan-iso.png') }}" class="img-fluid">
                             </div>
                         </div>
                         <div class="col-md-6">

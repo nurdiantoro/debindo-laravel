@@ -1,5 +1,9 @@
 @extends('backend.components.template')
 @section('content')
+    @if (session('success'))
+        @include('backend.components.modal.alert.success')
+    @endif
+
     <div class="container-fluid">
 
         <!-- Page Heading -->
@@ -17,7 +21,6 @@
                         <th>Judul</th>
                         <th>Tanggal Post</th>
                         <th>Nama Penulis</th>
-                        <th>Isi</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -26,19 +29,15 @@
                         <tr>
                             <td>
                                 <div style="height: 100px; width: 100px">
-                                    <img src="{{ asset('assets/img/news/' . $news->image) }}" class="img-fluid">
+                                    <img src="{{ asset('storage/img/news/' . $news->image) }}" class="img-fluid">
                                 </div>
                             </td>
                             <td>{{ $news->judul }}</td>
                             <td>{{ $news->tgl_post }}</td>
                             <td>{{ $news->nama_penulis }}</td>
-                            <td>{{ $news->isi }}</td>
                             <td class="d-flex flex-nowrap">
-                                <button data-bs-toggle="modal" data-bs-target="#modalEditNews"
-                                    type="button"class="btn btn-sm btn-primary mr-2 tombol_edit_news"
-                                    data-id="{{ $news->id }}" data-judul="{{ $news->judul }}"
-                                    data-tgl_post="{{ $news->tgl_post }}" data-nama_penulis="{{ $news->nama_penulis }}"
-                                    data-isi="{{ $news->isi }}" data-image="{{ $news->image }}">Edit</button>
+                                <a href="{{ url('dashboard/news/update/' . $news->id) }}"
+                                    class="btn btn-sm btn-primary mr-2">Update</a>
                                 <a href="{{ url('dashboard/news/delete/' . $news->id) }}"
                                     class="btn btn-sm btn-danger">Delete</a>
                             </td>

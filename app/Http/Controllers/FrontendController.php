@@ -56,6 +56,15 @@ class FrontendController extends Controller
             'newss' => $newss,
         ]);
     }
+    public function news_detail($slug)
+    {
+        $news = News::find($slug);
+        $title = $news->title;
+        return view('frontend.news_detail', [
+            'title' => $title,
+            'news' => $news,
+        ]);
+    }
     public function career()
     {
         $careers = Career::all();

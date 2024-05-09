@@ -23,7 +23,7 @@
                     @foreach ($data as $partner)
                         <tr>
                             <input type="hidden" value="{{ $partner->id }}" name="id[{{ $partner->id }}]">
-                            <td><img src="{{ asset('assets/img/partner/' . $partner->logo) }}" style="height: 20px"></td>
+                            <td><img src="{{ asset('storage/img/partner/' . $partner->logo) }}" style="height: 20px"></td>
                             <td>{{ $partner->name }}</td>
                             <td>
                                 <input required type="number" value="{{ $partner->urutan }}"

@@ -1,7 +1,7 @@
 @extends('frontend.components.template')
 @section('content')
     <div id="homepage">
-        <div class="header" style="background-image: url('assets/img/MRA_6794.jpg');">
+        <div class="header" style="background-image: url('storage/img/MRA_6794.jpg');">
             <div class="text-center title">
                 <h1>ALL EVENT SPECIALISTS</h1>
                 <a href="{{ url('event') }}">
@@ -45,10 +45,10 @@
                 <h3>Our Values</h3>
                 <div class="row mt-5">
                     <div class="col-md-4">
-                        <img src="{{ asset('assets/img/debindo-logo-2.png') }}" class="img-fluid" alt="debindo-logo">
+                        <img src="{{ asset('storage/img/debindo-logo-2.png') }}" class="img-fluid" alt="debindo-logo">
                     </div>
                     <div class="col-md-8 ">
-                        <img src="{{ asset('assets/img/our-value.png') }}" class="img-fluid" alt="our-value">
+                        <img src="{{ asset('storage/img/our-value.png') }}" class="img-fluid" alt="our-value">
 
                         {{-- <p>Exhibitors at DEBINDO will find all manner and dimensions of premises to suit every conceivable
                             idea
@@ -76,7 +76,7 @@
                     </div>
                     <div class="carousel-partners owl-theme owl-carousel">
                         @foreach ($partners as $partner)
-                            <img src="{{ asset('assets/img/partner/' . $partner->logo) }}" alt="">
+                            <img src="{{ asset('storage/img/partner/' . $partner->logo) }}" alt="">
                         @endforeach
                     </div>
 
@@ -124,7 +124,7 @@
                     <div class="card-flex">
                         <div class="card-wrapper">
                             <div class="card">
-                                <img src="{{ asset('assets/img/event/Web_Banner_TEI_(Debindo)(1).jpg') }}" alt="">
+                                <img src="{{ asset('storage/img/event/Web_Banner_TEI_(Debindo)(1).jpg') }}" alt="">
                                 <p class="nama">Trade Expo Indonesia</p>
                                 <p class="tanggal">9 - 12 October 2024</p>
                                 <p class="lokasi">ICE BSD, Tangerang</p>
@@ -134,7 +134,7 @@
                         </div>
                         <div class="card-wrapper">
                             <div class="card">
-                                <img src="{{ asset('assets/img/event/Banner_Kriya_1334x478.jpg') }}" alt="">
+                                <img src="{{ asset('storage/img/event/Banner_Kriya_1334x478.jpg') }}" alt="">
                                 <p class="nama">kriya Indonesia</p>
                                 <p class="tanggal">10-14 Juli 2024</p>
                                 <p class="lokasi">Assembly Hall JCC, Jakarta Pusat</p>
@@ -153,7 +153,7 @@
                     <div class="h3-wrapper">
                         <h3>Our Values</h3>
                     </div>
-                    <img src="{{ asset('assets/img/our-value.png') }}" class="img-fluid" alt="our-value">
+                    <img src="{{ asset('storage/img/our-value.png') }}" class="img-fluid" alt="our-value">
                 </div>
             </div>
         </div> --}}
@@ -173,7 +173,7 @@
                                 <div class="card-news">
                                     <div class="image-wrapper">
                                         <img class="image"
-                                            src="{{ asset('assets/img/youtube') . '/' . $youtube->thumbnail }}"
+                                            src="{{ asset('storage/img/youtube') . '/' . $youtube->thumbnail }}"
                                             alt="{{ $youtube->thumbnail }}">
                                     </div>
                                     <div class="judul">{{ $youtube->title }}</div>
@@ -191,7 +191,7 @@
                 @foreach ($testimoni as $testi)
                     <div class="carousel-testimoni-item">
                         <div class="foto-wrapper">
-                            <img src="{{ asset('assets/img/testimoni') . '/' . $testi->foto }}" alt="">
+                            <img src="{{ asset('storage/img/testimoni') . '/' . $testi->foto }}" alt="">
                         </div>
                         <div class="nama">
                             <?= $testi->nama ?>

@@ -31,7 +31,7 @@
                                     @if ($event->logo == '')
                                         <span>tidak ada logo</span>
                                     @else
-                                        <img src="{{ asset('assets/img/event/' . $event->logo) }}" class="img-fluid"
+                                        <img src="{{ asset('storage/img/event/' . $event->logo) }}" class="img-fluid"
                                             style="height: 50px">
                                     @endif
                                 </div>

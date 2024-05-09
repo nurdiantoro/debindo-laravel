@@ -18,6 +18,10 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body id="page-top">
@@ -35,10 +39,13 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <span>Console :</span>
+                    <span>Console : </span>
                     <span class="text-danger">
                         @if (session()->has('pesan'))
                             {{ session('pesan') }}
+                        @endif
+                        @if (session()->has('console'))
+                            {{ session('console') }}
                         @endif
                         @if ($errors->any())
                             @foreach ($errors->all() as $error)

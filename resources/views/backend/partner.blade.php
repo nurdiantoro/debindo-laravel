@@ -27,7 +27,7 @@
                             <td class="text-center">{{ $partner->urutan }}</td>
                             <td>
                                 <div style="height: 100px; width: 100px">
-                                    <img src="{{ asset('assets/img/partner/' . $partner->logo) }}" class="img-fluid">
+                                    <img src="{{ asset('storage/img/partner/' . $partner->logo) }}" class="img-fluid">
                                 </div>
                             </td>
                             <td>{{ $partner->name }}</td>

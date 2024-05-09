@@ -24,7 +24,7 @@
                 <tbody>
                     @foreach ($youtubes as $youtube)
                         <tr>
-                            <td><img src="{{ asset('assets/img/youtube/' . $youtube->thumbnail) }}" height="100px"></td>
+                            <td><img src="{{ asset('storage/img/youtube/' . $youtube->thumbnail) }}" height="100px"></td>
                             <td>{{ $youtube->title }}</td>
                             <td>{{ $youtube->link }}</td>
                             <td class="d-flex flex-nowrap">
@@ -60,7 +60,7 @@
                     @foreach ($event_carousels as $event_carousel)
                         <tr>
                             <td>{{ $event_carousel->urutan }}</td>
-                            <td class="text-left"><img src="{{ asset('assets/img/event/' . $event_carousel->foto) }}"
+                            <td class="text-left"><img src="{{ asset('storage/img/event/' . $event_carousel->foto) }}"
                                     height="100px">
                             </td>
                             <td>{{ $event_carousel->title }}</td>
@@ -98,7 +98,7 @@
                 <tbody>
                     @foreach ($testimonials as $testimoni)
                         <tr>
-                            <td><img src="{{ asset('assets/img/testimoni/' . $testimoni->foto) }}" height="100px"></td>
+                            <td><img src="{{ asset('storage/img/testimoni/' . $testimoni->foto) }}" height="100px"></td>
                             <td>{{ $testimoni->nama }}</td>
                             <td>{{ $testimoni->jabatan }}</td>
                             <td>{{ $testimoni->testimoni }}</td>

@@ -10,7 +10,7 @@
                         <?php foreach($newsCarousel as $carousel): ?>
                         <div class="carousel-news-item">
                             <span><?= $carousel->title ?></span>
-                            <img src="<?= url('assets/img/news') . '/' . $carousel->foto ?>" alt="<?= $carousel->foto ?>"
+                            <img src="<?= url('storage/img/news') . '/' . $carousel->foto ?>" alt="<?= $carousel->foto ?>"
                                 class="img-fluid w-100">
                         </div>
                         <?php endforeach;?>
@@ -40,7 +40,7 @@
                             <div class="col-md-4 col-4">
                                 <div class="foto-profil-ig-wrapper">
                                     <div class="foto-profil-ig">
-                                        <img src="<?= url('assets/img/debindo-logo.png') ?>" alt="">
+                                        <img src="<?= url('storage/img/debindo-logo.png') ?>" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -64,22 +64,22 @@
                         </div>
                         <div class="row ig-feed">
                             <div class="col-md-4 col-4">
-                                <img src="<?= url('assets/img/news/ig-feed-1.png') ?>" class="img-fluid">
+                                <img src="<?= url('storage/img/news/ig-feed-1.png') ?>" class="img-fluid">
                             </div>
                             <div class="col-md-4 col-4">
-                                <img src="<?= url('assets/img/news/ig-feed-2.png') ?>" class="img-fluid">
+                                <img src="<?= url('storage/img/news/ig-feed-2.png') ?>" class="img-fluid">
                             </div>
                             <div class="col-md-4 col-4">
-                                <img src="<?= url('assets/img/news/ig-feed-3.png') ?>" class="img-fluid">
+                                <img src="<?= url('storage/img/news/ig-feed-3.png') ?>" class="img-fluid">
                             </div>
                             <div class="col-md-4 col-4">
-                                <img src="<?= url('assets/img/news/ig-feed-4.png') ?>" class="img-fluid">
+                                <img src="<?= url('storage/img/news/ig-feed-4.png') ?>" class="img-fluid">
                             </div>
                             <div class="col-md-4 col-4">
-                                <img src="<?= url('assets/img/news/ig-feed-5.png') ?>" class="img-fluid">
+                                <img src="<?= url('storage/img/news/ig-feed-5.png') ?>" class="img-fluid">
                             </div>
                             <div class="col-md-4 col-4">
-                                <img src="<?= url('assets/img/news/ig-feed-6.png') ?>" class="img-fluid">
+                                <img src="<?= url('storage/img/news/ig-feed-6.png') ?>" class="img-fluid">
                             </div>
                         </div>
                         <div class="w-100 text-center pt-2">
@@ -95,13 +95,16 @@
 
                 <?php foreach ($newss as $news) : ?>
                 <div class="col-md-3 col-6 mb-4">
-                    <a href="<?= url('news/id/' . $news->id) ?>">
+                    <a href="<?= url('news/' . $news->id) ?>">
                         <div class="card-news">
                             <div class="image-wrapper">
-                                <img src="<?= url('assets/img/news') . '/' . $news->image ?>" class="image">
+                                <img src="<?= url('storage/img/news') . '/' . $news->image ?>" class="image">
                             </div>
                             <div class="judul"><?= $news->judul ?></div>
-                            <p><?= $news->isi ?></p>
+                            <div class="isi"
+                                style="white-space: nowrap; overflow: hidden;  text-overflow: ellipsis; height: 20px">
+                                {!! $news->isi !!}
+                            </div>
                         </div>
                     </a>
                 </div>

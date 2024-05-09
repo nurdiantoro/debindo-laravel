@@ -10,6 +10,10 @@ new DataTable('#table_event', {
     ]
 });
 
+const quill = new Quill('#editor', {
+    theme: 'snow'
+});
+
 $(document).ready(function () {
     $('.edit-btn').click(function () {
         var userId = $(this).data('id');
@@ -94,7 +98,7 @@ $(document).ready(function () {
         var eo = $(this).data('eo');
         var deskripsi = $(this).data('deskripsi');
 
-        console.log(id,judul,tgl_mulai,tgl_selesai,lokasi,kota,addition,link,logo,eo,deskripsi)
+        console.log(id, judul, tgl_mulai, tgl_selesai, lokasi, kota, addition, link, logo, eo, deskripsi)
 
         $('#edit_id').val(id);
         $('#edit_judul').val(judul);
