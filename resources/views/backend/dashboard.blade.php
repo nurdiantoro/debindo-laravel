@@ -41,38 +41,40 @@
             </table>
         </div>
 
-        <!-- Event Carousel -->
+        <!-- Next Event -->
         <div class="my-5">
-            <h1 class="h3 mb-0 text-gray-800">Event Carousel</h1>
-            <button class="btn-sm btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahEventCarousel"><i
-                    class="fas fa-plus"></i> Tambah Event Carousel </button>
+            <h1 class="h3 mb-0 text-gray-800">Next Event</h1>
+            <button class="btn-sm btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahNextEvent"><i
+                    class="fas fa-plus"></i> Tambah Next Event </button>
             <table id="table_event_carousel" class="display" style="width:100%">
                 <thead>
                     <tr>
                         <th>Urutan</th>
                         <th class="text-left">Image</th>
-                        <th>Title</th>
-                        <th>Subtitle</th>
-                        <th>Action</th>
+                        <th>Event</th>
+                        <th>Tanggal</th>
+                        <th>Lokasi</th>
+                        <th>Link</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($event_carousels as $event_carousel)
+                    @foreach ($next_events as $next_event)
                         <tr>
-                            <td>{{ $event_carousel->urutan }}</td>
-                            <td class="text-left"><img src="{{ asset('storage/img/event/' . $event_carousel->foto) }}"
+                            <td>{{ $next_event->urutan }}</td>
+                            <td class="text-left"><img src="{{ asset('storage/img/event/' . $next_event->image) }}"
                                     height="100px">
                             </td>
-                            <td>{{ $event_carousel->title }}</td>
-                            <td>{{ $event_carousel->subtitle }}</td>
+                            <td>{{ $next_event->name }}</td>
+                            <td>{{ $next_event->tanggal }}</td>
+                            <td>{{ $next_event->lokasi }}</td>
                             <td class="d-flex flex-nowrap w-full">
-                                <a class="btn btn-sm btn-primary mr-2 tombol_edit_event_carousel" data-bs-toggle="modal"
-                                    data-bs-target="#modalEditEventCarousel" data-id="{{ $event_carousel->id }}"
-                                    data-title="{{ $event_carousel->title }}"
-                                    data-subtitle="{{ $event_carousel->subtitle }}"
-                                    data-foto="{{ $event_carousel->foto }}"
-                                    data-urutan="{{ $event_carousel->urutan }}">Edit</a>
-                                <a href="{{ url('dashboard/event_carousel/delete/' . $youtube->id) }}"
+                                <button class="btn btn-sm btn-primary mr-2 tombol_edit_next_event" data-bs-toggle="modal"
+                                    data-bs-target="#modalEditNextEvent" data-id="{{ $next_event->id }}"
+                                    data-name="{{ $next_event->name }}" data-tanggal="{{ $next_event->tanggal }}"
+                                    data-lokasi="{{ $next_event->lokasi }}" data-link="{{ $next_event->link }}"
+                                    data-image="{{ $next_event->image }}"
+                                    data-urutan="{{ $next_event->urutan }}">Edit</button>
+                                <a href="{{ url('dashboard/next_event/delete/' . $next_event->id) }}"
                                     class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
@@ -122,14 +124,14 @@
         @include('backend.components.modal.edit_youtube')
         {{-- @include('backend.components.modal.delete_youtube') --}}
 
-        <!-- Modal Event Carousel-->
-        @include('backend.components.modal.tambah_event_carousel')
-        @include('backend.components.modal.edit_event_carousel')
-        {{-- @include('backend.components.modal.delete_event_carousel') --}}
-
         <!-- Modal Testimoni-->
         @include('backend.components.modal.tambah_testimoni')
         @include('backend.components.modal.edit_testimoni')
         {{-- @include('backend.components.modal.delete_testimoni') --}}
+
+        <!-- Modal Next Event-->
+        @include('backend.components.modal.tambah_next_event')
+        @include('backend.components.modal.edit_next_event')
+        {{-- @include('backend.components.modal.delete_next_event') --}}
     </div>
 @endsection

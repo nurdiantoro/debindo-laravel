@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\EventCarousel;
 use App\Models\inbox;
 use App\Models\News;
+use App\Models\NextEvent;
 use App\Models\Partner;
 use App\Models\Team;
 use App\Models\Testimoni;
@@ -19,11 +20,11 @@ class BackendController extends Controller
     {
         $youtubes = Youtube::all();
         $testimonials = Testimoni::all();
-        $event_carousels = EventCarousel::all();
+        $next_events = NextEvent::all();
         return view("backend.dashboard", [
             "youtubes" => $youtubes,
             "testimonials" => $testimonials,
-            "event_carousels" => $event_carousels,
+            "next_events" => $next_events,
         ]);
     }
 
@@ -36,7 +37,8 @@ class BackendController extends Controller
     public function event()
     {
         $events = Event::all();
-        return view("backend.event", ['events' => $events]);
+        $event_carousels = EventCarousel::all();
+        return view("backend.event", ['events' => $events, "event_carousels" => $event_carousels,]);
     }
     public function news()
     {

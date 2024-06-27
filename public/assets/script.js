@@ -10,9 +10,9 @@ new DataTable('#table_event', {
     ]
 });
 
-const quill = new Quill('#editor', {
-    theme: 'snow'
-});
+// const quill = new Quill('#editor', {
+//     theme: 'snow'
+// });
 
 $(document).ready(function () {
     $('.edit-btn').click(function () {
@@ -45,6 +45,28 @@ $(document).ready(function () {
         $('#edit_title').val(title);
         $('#edit_thumbnail').val(thumbnail);
         $('#edit_link').val(link);
+    });
+
+    // Modal Edit Next Event
+    $('.tombol_edit_next_event').on('click', function () {
+        console.log('Tombol Edit Event ditekan');
+        var id = $(this).data('id');
+        var name = $(this).data('name');
+        var tanggal = $(this).data('tanggal');
+        var image = $(this).data('image');
+        var lokasi = $(this).data('lokasi');
+        var link = $(this).data('link');
+        var urutan = $(this).data('urutan');
+
+        console.log(id,name,tanggal,image,urutan,lokasi,link)
+
+        $('#edit_id_next_event').val(id);
+        $('#edit_name_next_event').val(name);
+        $('#edit_tanggal_next_event').val(tanggal);
+        $('#edit_image_next_event').val(image);
+        $('#edit_lokasi_next_event').val(lokasi);
+        $('#edit_link_next_event').val(link);
+        $('#edit_urutan_next_event').val(urutan);
     });
 
     // Modal Edit Event Carousel
