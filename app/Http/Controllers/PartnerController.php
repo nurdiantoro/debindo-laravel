@@ -11,11 +11,11 @@ class PartnerController extends Controller
     public function store(Request $request)
     {
         if ($request->hasFile('logo')) {
-            $validate = $request->validate(['logo' => 'mimes:jpeg,png,jpg']);
+            $validate = $request->validate(['logo' => 'mimes:jpeg,png,jpg|max:1000']);
             if ($validate) {
                 $imageName = time() . '_' . $request->file('logo')->getClientOriginalName();
                 $image = $request->file('logo');
-                $image->move(public_path('assets/img/partner/'), $imageName);
+                $image->move(public_path('storage/img/partner/'), $imageName);
             } else {
                 return redirect()->back()->withErrors($validate);
             }
@@ -48,15 +48,15 @@ class PartnerController extends Controller
     {
 
         if ($request->hasFile('logo')) {
-            $validate = $request->validate(['logo' => 'mimes:jpeg,png,jpg']);
+            $validate = $request->validate(['logo' => 'mimes:jpeg,png,jpg|max:1000']);
             if ($validate) {
                 $imageName = time() . '_' . $request->file('logo')->getClientOriginalName();
                 $image = $request->file('logo');
-                $image->move(public_path('assets/img/partner/'), $imageName);
+                $image->move(public_path('storage/img/partner/'), $imageName);
 
                 // delete image lama
                 // $logo_delete = Partner::find($request->id)->logo;
-                // $file_path = public_path('assets/img/partner/' . $logo_delete);
+                // $file_path = public_path('storage/img/partner/' . $logo_delete);
                 // unlink($file_path);
             } else {
                 return redirect()->back()->withErrors($validate);
@@ -94,7 +94,7 @@ class PartnerController extends Controller
 
         // delete image lama
         // if ($partner->logo != NULL) {
-        //     $file_path = public_path('assets/img/partner/' . $partner->logo);
+        //     $file_path = public_path('storage/img/partner/' . $partner->logo);
         //     if (unlink($file_path)) {
         //         $pesan = 'Data berhasil dihapus';
         //     } else {

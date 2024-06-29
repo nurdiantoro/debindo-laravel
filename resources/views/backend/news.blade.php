@@ -7,12 +7,13 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <div class="mb-4">
             <h1 class="h3 mb-0 text-gray-800">News</h1>
+            <p>Update berita disini ya</p>
         </div>
 
         <div class="mb-5">
-            <button class="btn btn-primary btm-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahNews"><i
+            <button class="btn btn-sm btn-primary btm-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahNews"><i
                     class="fas fa-plus"></i> Tambah News</button>
             <table id="table_event" class="display" style="width:100%">
                 <thead>

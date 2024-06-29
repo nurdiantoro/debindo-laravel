@@ -8,7 +8,7 @@
         </div>
 
         <div class="mb-5">
-            <button class="btn btn-primary btm-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahTeam"><i
+            <button class="btn btn-sm btn-primary btm-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahTeam"><i
                     class="fas fa-plus"></i> Tambah Team</button>
             <table id="table_team" class="display" style="width:100%">
                 <thead>

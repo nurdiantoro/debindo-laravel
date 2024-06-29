@@ -8,7 +8,7 @@
         </div>
 
         <div class="mb-5">
-            <div class="btn btn-primary btm-sm mb-2"><i class="fas fa-plus"></i> Tambah Career</div>
+            <div class="btn btn-sm btn-primary btm-sm mb-2"><i class="fas fa-plus"></i> Tambah Career</div>
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>

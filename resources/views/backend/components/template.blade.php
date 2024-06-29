@@ -19,8 +19,11 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+    {{-- Text Editor --}}
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
@@ -62,7 +65,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Super Admin</span>
                                 <img class="img-profile rounded-circle"
-                                    src="{{ asset('assets/img/default-user.jpg') }}">
+                                    src="{{ asset('storage/img/team/default.jpg') }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -112,6 +115,43 @@
 
     </div>
     <!-- End of Page Wrapper -->
+
+    {{-- Toast Pesan --}}
+    @if (session('pesan'))
+        <script>
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "bottom",
+                showConfirmButton: false,
+                timer: 5000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: "success",
+                title: "{{ session('pesan') }}"
+            });
+        </script>
+    @endif
+
+    @if ($errors->any())
+        <script>
+            Swal.fire({
+                title: "Error!",
+                html: `
+                @foreach ($errors->all() as $error)
+                    <li> {{ $error }} </li>
+                @endforeach
+                <br>
+                <p>Paham bahasa inggris gak?<br>tanya Nur kalo masih gak ngerti, payah.</p>
+                `,
+                icon: "error"
+            });
+        </script>
+    @endif
 
     @include('backend.components.footer')
 

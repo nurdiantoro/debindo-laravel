@@ -8,9 +8,9 @@
         </div>
 
         <div class="mb-5">
-            <button class="btn btn-primary btm-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahPartner"><i
+            <button class="btn btn-primary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahPartner"><i
                     class="fas fa-plus"></i> Tambah Partner</button>
-            <a href="{{ url('dashboard/partner/urutan') }}" class="btn btn-primary btm-sm mb-2"><i class="fas fa-plus"></i>
+            <a href="{{ url('dashboard/partner/urutan') }}" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus"></i>
                 Edit Urutan</a>
             <table id="table_partner" class="display" style="width:100%">
                 <thead>

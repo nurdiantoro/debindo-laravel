@@ -13,6 +13,7 @@
             <form method="POST" action="{{ url('dashboard/partner/update') }}" enctype="multipart/form-data"
                 style="width: 50%; display: flex; flex-direction: column; gap: 10px;">
                 @csrf
+                @method('PUT')
                 <div>
                     <input class="form-control" type="hidden" name="id" id="id" value="{{ $data->id }}">
                     <input class="form-control" type="hidden" name="logo_lama" id="logo_lama" value="{{ $data->logo }}">

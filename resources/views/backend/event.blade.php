@@ -2,16 +2,17 @@
 @section('content')
     <div class="container-fluid">
 
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <div class=" mb-4">
             <h1 class="h3 mb-0 text-gray-800">Events</h1>
+            <p>Ini Settingan buat di halaman event</p>
         </div>
 
         <!-- Event Carousel -->
         <div class="my-5">
             <h1 class="h3 mb-0 text-gray-800">Event Carousel</h1>
-            <button class="btn-sm btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahEventCarousel"><i
+            <button class="btn btn-sm btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahEventCarousel"><i
                     class="fas fa-plus"></i> Tambah Event Carousel </button>
-            <table id="table_event_carousel" class="display" style="width:100%">
+            <table id="table_event_carousel" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th>Urutan</th>
@@ -46,7 +47,7 @@
         </div>
 
         <div class="mb-5">
-            <button class="btn btn-primary btm-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTambah"><i
+            <button class="btn btn-sm btn-primary btm-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTambah"><i
                     class="fas fa-plus"></i> Tambah Event</button>
 
             <table id="table_event" class="display" style="width:100%">

@@ -9,6 +9,7 @@
             <div class="modal-body">
                 <form method="POST" action="{{ url('dashboard/news/update') }}" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <input type="hidden" id="edit_id" name="id">
                     <input type="hidden" id="edit_image" name="image_lama">
                     <div class="mb-3">

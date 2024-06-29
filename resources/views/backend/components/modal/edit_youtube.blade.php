@@ -8,6 +8,7 @@
             <div class="modal-body">
                 <form method="POST" action="{{ url('dashboard/youtube/update') }}" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <input type="hidden" id="edit_id" name="id">
                         <input type="hidden" id="edit_thumbnail" name="thumbnail_lama">

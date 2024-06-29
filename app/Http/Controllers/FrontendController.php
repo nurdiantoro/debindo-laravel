@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Career;
 use App\Models\Event;
 use App\Models\EventCarousel;
+use App\Models\Inbox;
 use App\Models\News;
 use App\Models\NewsCarousel;
+use App\Models\NextEvent;
 use App\Models\Partner;
 use App\Models\Team;
 use App\Models\Testimoni;
@@ -23,12 +25,14 @@ class FrontendController extends Controller
         $youtubes = Youtube::all();
         $partners = Partner::orderBy('urutan', 'asc')->get();
         $title = "Debindo | All Event Spesialists";
+        $next_events = NextEvent::all();
         return view('frontend.home', [
             'highlights' => $highlights,
             'testimoni' => $testimoni,
             'youtubes' => $youtubes,
             'title' => $title,
-            'partners' => $partners
+            'partners' => $partners,
+            'next_events' => $next_events
         ]);
     }
 
@@ -100,5 +104,20 @@ class FrontendController extends Controller
         return view('frontend.contact', [
             'title' => $title
         ]);
+    }
+    public function contact_store(Request $request)
+    {
+        $validate = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'subject' => 'required|string',
+            'message' => 'required|string',
+        ]);
+        if ($validate) {
+            Inbox::create($request->all());
+            return redirect()->back()->with(['Message Sent' => 'Message Sent Successfully!']);
+        } else {
+            return redirect()->back()->withErrors($validate);
+        }
     }
 }

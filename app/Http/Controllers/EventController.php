@@ -12,11 +12,11 @@ class EventController extends Controller
     public function store(Request $request)
     {
         if ($request->hasFile('logo')) {
-            $validate = $request->validate(['logo' => 'mimes:jpeg,png,jpg']);
+            $validate = $request->validate(['logo' => 'mimes:jpeg,png,jpg|max:1000']);
             if ($validate) {
                 $imageName = time() . '_' . $request->file('logo')->getClientOriginalName();
                 $image = $request->file('logo');
-                $image->move(public_path('assets/img/event/'), $imageName);
+                $image->move(public_path('storage/img/event/'), $imageName);
             } else {
                 return redirect()->back()->withErrors($validate);
             }
@@ -46,16 +46,16 @@ class EventController extends Controller
     {
         // Jika Ada logo, Upload dan Update logo baru, logo lama di hapus dari directory
         if ($request->hasFile('logo')) {
-            $validate = $request->validate(['logo' => 'mimes:jpeg,png,jpg']);
+            $validate = $request->validate(['logo' => 'mimes:jpeg,png,jpg|max:1000']);
             if ($validate) {
 
                 // Upload Logo baru
                 $imageName = time() . '_' . $request->file('logo')->getClientOriginalName();
                 $image = $request->file('logo');
-                $image->move(public_path('assets/img/event/'), $imageName);
+                $image->move(public_path('storage/img/event/'), $imageName);
 
                 // Hapus Logo lama
-                // $file_path = public_path('assets/img/event/' . Event::find($id)->logo);
+                // $file_path = public_path('storage/img/event/' . Event::find($id)->logo);
                 // unlink($file_path);
             } else {
                 return redirect()->back()->withErrors($validate);
@@ -84,7 +84,7 @@ class EventController extends Controller
 
         // delete image lama
         // if ($event->logo != NULL) {
-        //     $file_path = public_path('assets/img/event/' . $event->logo);
+        //     $file_path = public_path('storage/img/event/' . $event->logo);
         //     if (unlink($file_path)) {
         //         $pesan = 'Data berhasil dihapus';
         //     } else {

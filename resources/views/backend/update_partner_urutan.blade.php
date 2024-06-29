@@ -13,6 +13,7 @@
             <form method="POST" action="{{ url('dashboard/partner/update_urutan') }}"
                 style="width: 50%; display: flex; flex-direction: column; gap: 10px;">
                 @csrf
+                @method('PUT')
 
                 <table class="table">
                     <thead>

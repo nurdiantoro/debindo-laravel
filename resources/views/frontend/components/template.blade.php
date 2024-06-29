@@ -65,7 +65,7 @@
     <script src="{{ url('assets/jquery.min.js') }}"></script>
     <script src="{{ url('assets/owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="{{ url('assets/datatables/datatables.min.js') }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 

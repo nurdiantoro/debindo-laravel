@@ -3,16 +3,17 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <div class="">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <p>Ini settingan buat yang di halaman utama debindo.com</p>
         </div>
 
         <!-- Youtube -->
         <div class="my-5">
             <h1 class="h3 mb-0 text-gray-800">Youtube</h1>
-            <button class="btn-sm btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahYoutube"><i
+            <button class="btn btn-sm btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahYoutube"><i
                     class="fas fa-plus"></i> Tambah Youtube </button>
-            <table id="table_youtube" class="display" style="width:100%">
+            <table id="table_youtube" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th>Thumbnail</th>
@@ -26,14 +27,15 @@
                         <tr>
                             <td><img src="{{ asset('storage/img/youtube/' . $youtube->thumbnail) }}" height="100px"></td>
                             <td>{{ $youtube->title }}</td>
-                            <td>{{ $youtube->link }}</td>
+                            <td> <a href="{{ $youtube->link }}" target="_blank"> {{ $youtube->link }}</a></td>
                             <td class="d-flex flex-nowrap">
                                 <button class="btn btn-sm btn-primary mr-2 tombol_edit_youtube" data-bs-toggle="modal"
                                     data-bs-target="#modalEditYoutube" data-id="{{ $youtube->id }}"
                                     data-thumbnail="{{ $youtube->thumbnail }}" data-title="{{ $youtube->title }}"
                                     data-link="{{ $youtube->link }}">Edit</button>
-                                <a href="{{ url('dashboard/youtube/delete/' . $youtube->id) }}"
-                                    class="btn btn-sm btn-danger">Delete</a>
+                                <button data-pesan="Beneran mau hapus {{ $youtube->title }} ?"
+                                    data-link="{{ url('dashboard/youtube/delete/' . $youtube->id) }}"
+                                    class="btn btn-sm btn-danger tombol_hapus">Delete</button>
                             </td>
                         </tr>
                     @endforeach
@@ -44,9 +46,9 @@
         <!-- Next Event -->
         <div class="my-5">
             <h1 class="h3 mb-0 text-gray-800">Next Event</h1>
-            <button class="btn-sm btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahNextEvent"><i
+            <button class="btn btn-sm btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahNextEvent"><i
                     class="fas fa-plus"></i> Tambah Next Event </button>
-            <table id="table_event_carousel" class="display" style="width:100%">
+            <table id="next_event" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th>Urutan</th>
@@ -55,6 +57,7 @@
                         <th>Tanggal</th>
                         <th>Lokasi</th>
                         <th>Link</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,6 +70,7 @@
                             <td>{{ $next_event->name }}</td>
                             <td>{{ $next_event->tanggal }}</td>
                             <td>{{ $next_event->lokasi }}</td>
+                            <td><a href="{{ $next_event->link }}" target="_blank">{{ $next_event->link }}</a></td>
                             <td class="d-flex flex-nowrap w-full">
                                 <button class="btn btn-sm btn-primary mr-2 tombol_edit_next_event" data-bs-toggle="modal"
                                     data-bs-target="#modalEditNextEvent" data-id="{{ $next_event->id }}"
@@ -74,8 +78,12 @@
                                     data-lokasi="{{ $next_event->lokasi }}" data-link="{{ $next_event->link }}"
                                     data-image="{{ $next_event->image }}"
                                     data-urutan="{{ $next_event->urutan }}">Edit</button>
-                                <a href="{{ url('dashboard/next_event/delete/' . $next_event->id) }}"
-                                    class="btn btn-sm btn-danger">Delete</a>
+                                <button data-id="{{ $next_event->id }}"
+                                    data-pesan="Yakin nih hapus {{ $next_event->name }} ?"
+                                    data-link="{{ url('dashboard/next_event/delete/' . $next_event->id) }}"
+                                    class="btn btn-sm btn-danger tombol_hapus">Delete</button>
+                                {{-- <a href="{{ url('dashboard/next_event/delete/' . $next_event->id) }}"
+                                    class="btn btn-sm btn-danger">Delete</a> --}}
                             </td>
                         </tr>
                     @endforeach
@@ -83,11 +91,12 @@
             </table>
         </div>
 
+        {{-- Testimoni --}}
         <div class="mb-5">
             <h1 class="h3 mb-0 text-gray-800">Testimoni</h1>
-            <button class="btn-primary btm-sm mb-2" data-bs-toggle="modal" data-bs-target="#modalTambahTestimoni"><i
-                    class="fas fa-plus"></i> Tambah Testimoni</button>
-            <table id="example" class="display" style="width:100%">
+            <button class="btn btn-sm btn-primary btm-sm mb-2" data-bs-toggle="modal"
+                data-bs-target="#modalTambahTestimoni"><i class="fas fa-plus"></i> Tambah Testimoni</button>
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Foto</th>
@@ -110,8 +119,11 @@
                                     data-nama="{{ $testimoni->nama }}" data-jabatan="{{ $testimoni->jabatan }}"
                                     data-testimoni="{{ $testimoni->testimoni }}"
                                     data-foto="{{ $testimoni->foto }}">Edit</a>
-                                <a href="{{ url('dashboard/testimoni/delete/' . $testimoni->id) }}"
-                                    class="btn btn-sm btn-danger">Delete</a>
+                                <button data-pesan="Yakin nih hapus {{ $testimoni->nama }} ?"
+                                    data-link="{{ url('dashboard/testimoni/delete/' . $testimoni->id) }}"
+                                    class="btn btn-sm btn-danger tombol_hapus">Delete</button>
+                                {{-- <a href="{{ url('dashboard/testimoni/delete/' . $testimoni->id) }}"
+                                    class="btn btn-sm btn-danger">Delete</a> --}}
                             </td>
                         </tr>
                     @endforeach

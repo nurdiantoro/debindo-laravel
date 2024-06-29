@@ -36,6 +36,7 @@ Route::get('/career', [FrontendController::class, 'career'])->name('career');
 Route::get('/team', [FrontendController::class, 'team'])->name('team');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+Route::put('/contact/store', [FrontendController::class, 'contact_store'])->name('contact_store');
 
 
 Route::middleware('guest')->group(function () {
@@ -78,15 +79,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/team/update/{id}', [BackendController::class, 'update_team'])->name('dashboard_team_update_view');
 
         // update
-        Route::post('/event/update', [EventController::class, 'update'])->name('dashboard_event_update');
-        Route::post('/next_event/update', [NextEventController::class, 'update'])->name('dashboard_next_event_update');
-        Route::post('/partner/update', [PartnerController::class, 'update'])->name('dashboard_partner_update');
-        Route::post('/partner/update_urutan', [PartnerController::class, 'updateUrutan'])->name('dashboard_partner_update_urutan');
-        Route::post('/event_carousel/update', [EventCarouselController::class, 'update'])->name('dashboard_event_update');
-        Route::post('/youtube/update', [YoutubeController::class, 'update'])->name('dashboard_youtube_update');
-        Route::post('/testimoni/update', [TestimoniController::class, 'update'])->name('dashboard_testimoni_update');
-        Route::post('/news/update', [NewsController::class, 'update'])->name('dashboard_news_update');
-        Route::post('/team/update', [TeamController::class, 'update'])->name('dashboard_team_update');
+        Route::put('/event/update', [EventController::class, 'update'])->name('dashboard_event_update');
+        Route::put('/next_event/update', [NextEventController::class, 'update'])->name('dashboard_next_event_update');
+        Route::put('/partner/update', [PartnerController::class, 'update'])->name('dashboard_partner_update');
+        Route::put('/partner/update_urutan', [PartnerController::class, 'updateUrutan'])->name('dashboard_partner_update_urutan');
+        Route::put('/event_carousel/update', [EventCarouselController::class, 'update'])->name('dashboard_event_update');
+        Route::put('/youtube/update', [YoutubeController::class, 'update'])->name('dashboard_youtube_update');
+        Route::put('/testimoni/update', [TestimoniController::class, 'update'])->name('dashboard_testimoni_update');
+        Route::put('/news/update', [NewsController::class, 'update'])->name('dashboard_news_update');
+        Route::put('/team/update', [TeamController::class, 'update'])->name('dashboard_team_update');
 
         // delete
         Route::get('/event/delete/{id}', [EventController::class, 'destroy'])->name('dashboard_event_delete');

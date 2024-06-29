@@ -10,6 +10,7 @@
                 <form method="POST" action="{{ url('dashboard/event_carousel/update') }}"
                     enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <input type="hidden" id="edit_id_event" name="id" value="">
                     <input type="hidden" id="edit_foto_event" name="foto_lama">
                     <div class="mb-3">

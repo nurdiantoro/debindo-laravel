@@ -10,8 +10,9 @@ class NextEventController extends Controller
     public function store(Request $request)
     {
         $imageName = '';
+
         if ($request->hasFile('image')) {
-            $validate = $request->validate(['image' => 'mimes:jpeg,png,jpg']);
+            $validate = $request->validate(['image' => 'mimes:jpeg,png,jpg|max:1000']);
             if ($validate) {
                 $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
                 $image = $request->file('image');
@@ -56,7 +57,7 @@ class NextEventController extends Controller
                 return redirect()->back()->withErrors($validate);
             }
         } else {
-            $imageName = $request->logo_lama;
+            $imageName = $request->image_lama;
         }
 
         NextEvent::where('id', $request->id)->update([
@@ -68,7 +69,7 @@ class NextEventController extends Controller
             'urutan' => $request->urutan,
         ]);
 
-        return redirect('dashboard/event')->with(['pesan' => 'Data berhasil diubah']);
+        return redirect('dashboard')->with(['pesan' => 'Data berhasil diubah']);
     }
 
     public function destroy(string $id)

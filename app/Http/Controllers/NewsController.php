@@ -11,7 +11,7 @@ class NewsController extends Controller
     {
         // dd($request->isi);
         if ($request->hasFile('image')) {
-            $validate = $request->validate(['image' => 'mimes:jpeg,png,jpg']);
+            $validate = $request->validate(['image' => 'mimes:jpeg,png,jpg|max:1000']);
             if ($validate) {
                 $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
                 $request->file('image')->storeAs('img/news/', $imageName, 'public');

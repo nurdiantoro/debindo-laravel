@@ -10,6 +10,7 @@
             <div class="modal-body">
                 <form method="POST" action="{{ url('dashboard/event/update') }}" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <input type="hidden" id="edit_id" name="id">
                     <input type="hidden" id="edit_logo" name="logo_lama">
                     <div class="mb-3">

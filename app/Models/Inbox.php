@@ -9,4 +9,10 @@ class Inbox extends Model
 {
     use HasFactory;
     protected $table = 'inbox';
+    protected  $fillable = [
+        'name',
+        'email',
+        'subject',
+        'message',
+    ];
 }

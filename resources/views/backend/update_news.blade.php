@@ -14,6 +14,7 @@
         <div class="mb-5">
             <form method="POST" action="{{ url('dashboard/news/update') }}" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <input type="hidden" name="id" id="id" value="{{ $data->id }}">
                 <div class="mb-3">
                     <label for="judul" class="form-label">judul</label>

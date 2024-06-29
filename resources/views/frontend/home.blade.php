@@ -119,28 +119,23 @@
             <div class="container">
                 <div class="text-center w-auto">
                     <div class="h3-wrapper">
-                        <h3>Up Comming Show</h3>
+                        <h3>Up Coming Show</h3>
                     </div>
                     <div class="card-flex">
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <img src="{{ asset('storage/img/event/Web_Banner_TEI_(Debindo)(1).jpg') }}" alt="">
-                                <p class="nama">Trade Expo Indonesia</p>
-                                <p class="tanggal">9 - 12 October 2024</p>
-                                <p class="lokasi">ICE BSD, Tangerang</p>
-                                <a href="https://www.tradexpoindonesia.com/" target="_blank" class="link">Link
-                                    Website</a>
+                        @foreach ($next_events as $next_event)
+                            <div class="card-wrapper">
+                                <div class="card">
+                                    <img src="{{ asset('storage/img/event/' . $next_event->image) }}" alt="">
+                                    <p class="nama">{{ $next_event->name }}</p>
+                                    <p class="tanggal">{{ $next_event->tanggal }}</p>
+                                    <p class="lokasi">{{ $next_event->lokasi }}</p>
+                                    @if ($next_event->link)
+                                        <a href="{{ $next_event->link }} target="_blank" class="link">Link
+                                            Website</a>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <img src="{{ asset('storage/img/event/Banner_Kriya_1334x478.jpg') }}" alt="">
-                                <p class="nama">kriya Indonesia</p>
-                                <p class="tanggal">10-14 Juli 2024</p>
-                                <p class="lokasi">Assembly Hall JCC, Jakarta Pusat</p>
-                                <a href="https://kriya-indonesia.com/" target="_blank" class="link">Link Website</a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -10,11 +10,11 @@ class EventCarouselController extends Controller
     public function store(Request $request)
     {
         if ($request->hasFile('foto')) {
-            $validate = $request->validate(['foto' => 'mimes:jpeg,png,jpg']);
+            $validate = $request->validate(['foto' => 'mimes:jpeg,png,jpg|max:1000']);
             if ($validate) {
                 $imageName = time() . '_' . $request->file('foto')->getClientOriginalName();
                 $image = $request->file('foto');
-                $image->move(public_path('assets/img/event/'), $imageName);
+                $image->move(public_path('storage/img/event/'), $imageName);
             } else {
                 return redirect()->back()->withErrors($validate);
             }
@@ -35,16 +35,16 @@ class EventCarouselController extends Controller
     public function update(Request $request)
     {
         if ($request->hasFile('foto')) {
-            $validate = $request->validate(['foto' => 'mimes:jpeg,png,jpg']);
+            $validate = $request->validate(['foto' => 'mimes:jpeg,png,jpg|max:1000']);
             if ($validate) {
                 // upload image baru
                 $imageName = time() . '_' . $request->file('foto')->getClientOriginalName();
                 $image = $request->file('foto');
-                $image->move(public_path('assets/img/event/'), $imageName);
+                $image->move(public_path('storage/img/event/'), $imageName);
 
                 // delete image lama
                 // $foto_delete = EventCarousel::find($request->id)->foto;
-                // $file_path = public_path('assets/img/event/' . $foto_delete);
+                // $file_path = public_path('storage/img/event/' . $foto_delete);
                 // unlink($file_path);
             } else {
                 return redirect()->back()->withErrors($validate);
@@ -74,7 +74,7 @@ class EventCarouselController extends Controller
 
         // delete image lama
         // if ($event_carousel->foto != NULL) {
-        //     $file_path = public_path('assets/img/event/' . $event_carousel->foto);
+        //     $file_path = public_path('storage/img/event/' . $event_carousel->foto);
         //     if (unlink($file_path)) {
         //         $pesan = 'Data berhasil dihapus';
         //     } else {

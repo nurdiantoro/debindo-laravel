@@ -3,7 +3,7 @@
     <div id="career">
         <div class="header" style="display: flex; flex-direction: column;">
             <h1>COME WORK <span style="color:var(--warna-02);">WITH US</span></h1>
-            <p style="color:var(--white-100)">career.debindo@gmail.com</p>
+            <p style="color:var(--white-100)">career@debindo.com</p>
         </div>
         <div class="container">
             <div class="row justify-content-center mb-5">
@@ -34,7 +34,7 @@
                 Don't see a suitable Position? Contact us, and tell us about your value. Our team will be happy to contact
                 you. Click button below and insert your Position as Subject.
                 <div class="mt-3">
-                    <a href="mailto:career.debindo@gmail.com">
+                    <a href="mailto:career@debindo.com">
                         <button class="btn tell-us">Tell Us</button>
                     </a>
                 </div>

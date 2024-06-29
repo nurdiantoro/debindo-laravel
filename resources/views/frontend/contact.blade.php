@@ -17,8 +17,10 @@
                                     onclick="window.location.href='<?= url('contact/destroySession') ?>';"></button>
                             </div>
                         @endif
-                        <form action="<?= url('contact/tambahInbox') ?>" method="post"
+                        <form action="<?= url('contact/store') ?>" method="post"
                             class="w-100 d-flex justify-content-center">
+                            @csrf
+                            @method('put')
                             <table>
                                 <tr>
                                     <td class="label">
@@ -81,4 +83,24 @@
             </div>
         </div>
     </div>
+
+    @if (session('Message Sent'))
+        <script>
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "bottom-start",
+                showConfirmButton: false,
+                timer: 5000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: "success",
+                title: "{{ session('Message Sent') }}"
+            });
+        </script>
+    @endif
 @endsection

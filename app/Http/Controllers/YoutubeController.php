@@ -9,12 +9,13 @@ class YoutubeController extends Controller
 {
     public function store(Request $request)
     {
+
         if ($request->hasFile('thumbnail')) {
-            $validate = $request->validate(['thumbnail' => 'mimes:jpeg,png,jpg']);
+            $validate = $request->validate(['thumbnail' => 'mimes:jpeg,png,jpg|max:1000']);
             if ($validate) {
                 $imageName = time() . '_' . $request->file('thumbnail')->getClientOriginalName();
                 $image = $request->file('thumbnail');
-                $image->move(public_path('assets/img/youtube/'), $imageName);
+                $image->move(public_path('storage/img/youtube/'), $imageName);
             } else {
                 return redirect()->back()->withErrors($validate);
             }
@@ -38,11 +39,11 @@ class YoutubeController extends Controller
             if ($validate) {
                 $imageName = time() . '_' . $request->file('thumbnail')->getClientOriginalName();
                 $image = $request->file('thumbnail');
-                $image->move(public_path('assets/img/youtube/'), $imageName);
+                $image->move(public_path('storage/img/youtube/'), $imageName);
 
                 // delete image lama
                 // $thumbnail_delete = Youtube::find($request->id)->thumbnail;
-                // $file_path = public_path('assets/img/youtube/' . $thumbnail_delete);
+                // $file_path = public_path('storage/img/youtube/' . $thumbnail_delete);
                 // unlink($file_path);
             } else {
                 return redirect()->back()->withErrors($validate);

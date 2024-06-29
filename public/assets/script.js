@@ -1,7 +1,7 @@
 // new DataTable('#example');
-new DataTable('#table_youtube');
+// new DataTable('#table_youtube');
 new DataTable('#table_partner');
-new DataTable('#table_event_carousel');
+// new DataTable('#table_event_carousel');
 new DataTable('#table_inbox');
 // new DataTable('#table_team');
 new DataTable('#table_event', {
@@ -187,5 +187,26 @@ $(document).ready(function () {
         $('#edit_linkedin').val(linkedin);
         $('#edit_foto').val(foto);
         $('#edit_urutan').val(urutan);
+    });
+
+    // Modal Hapus Apa Aja
+    $('.tombol_hapus').on('click', function () {
+        var link = $(this).data('link');
+        var pesan = $(this).data('pesan');
+
+        Swal.fire({
+                title: "Delete",
+                text: pesan,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Iye Beneran",
+                cancelButtonText: "Gak Jadi"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = link
+                }
+            });
     });
 });

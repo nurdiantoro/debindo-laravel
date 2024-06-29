@@ -7,13 +7,14 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url('dashboard/event_carousel/update') }}"
-                    enctype="multipart/form-data">
+                <form method="POST" action="{{ url('dashboard/next_event/update') }}" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <input type="hidden" id="edit_id_next_event" name="id">
                         <label for="image" class="form-label">image</label>
-                        <input required class="form-control" type="file" id="edit_image_next_event" name="image">
+                        <input class="form-control" type="file" name="image">
+                        <input type="hidden" id="edit_image_next_event" name="image_lama">
                         {{-- <input type="hidden" name="image_lama" value=""> --}}
                     </div>
                     <div class="mb-3">
