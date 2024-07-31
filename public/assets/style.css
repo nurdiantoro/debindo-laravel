@@ -872,16 +872,20 @@ body {
 #news .ig-feed {
 	padding: 10px;
 	text-align: center;
-
 }
 
 #news .ig-feed .col-md-4 {
 	padding: 3px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border: 0.25px solid var(--black-30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #news .ig-feed img {
-	width: 100%;
-	border: 0.25px solid var(--black-30);
+	/* width: 100%; */
 }
 
 #news a {

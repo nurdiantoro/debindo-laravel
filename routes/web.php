@@ -37,6 +37,7 @@ Route::get('/team', [FrontendController::class, 'team'])->name('team');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::put('/contact/store', [FrontendController::class, 'contact_store'])->name('contact_store');
+Route::get('/instagram', [FrontendController::class, 'instagram'])->name('instagram');
 
 
 Route::middleware('guest')->group(function () {

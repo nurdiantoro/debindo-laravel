@@ -63,24 +63,17 @@
                             </div>
                         </div>
                         <div class="row ig-feed">
-                            <div class="col-md-4 col-4">
-                                <img src="<?= url('storage/img/news/ig-feed-1.png') ?>" class="img-fluid">
-                            </div>
-                            <div class="col-md-4 col-4">
-                                <img src="<?= url('storage/img/news/ig-feed-2.png') ?>" class="img-fluid">
-                            </div>
-                            <div class="col-md-4 col-4">
-                                <img src="<?= url('storage/img/news/ig-feed-3.png') ?>" class="img-fluid">
-                            </div>
-                            <div class="col-md-4 col-4">
-                                <img src="<?= url('storage/img/news/ig-feed-4.png') ?>" class="img-fluid">
-                            </div>
-                            <div class="col-md-4 col-4">
-                                <img src="<?= url('storage/img/news/ig-feed-5.png') ?>" class="img-fluid">
-                            </div>
-                            <div class="col-md-4 col-4">
-                                <img src="<?= url('storage/img/news/ig-feed-6.png') ?>" class="img-fluid">
-                            </div>
+                            @foreach ($instagrams as $instagram)
+                                <div class="col-md-4 col-4">
+                                    @if ($instagram['media_type'] == 'IMAGE' || $instagram['media_type'] == 'CAROUSEL_ALBUM')
+                                        <img src="{{ $instagram['media_url'] }}" alt="{{ $instagram['media_type'] }}"
+                                            class="img-fluid">
+                                    @elseif ($instagram['media_type'] == 'VIDEO')
+                                        <img src="{{ $instagram['thumbnail_url'] }}" alt="{{ $instagram['media_type'] }}"
+                                            class="img-fluid">
+                                    @endif
+                                </div>
+                            @endforeach
                         </div>
                         <div class="w-100 text-center pt-2">
                             <a href="https://www.instagram.com/debindonetwork/" target="blank">visit our instagram</a>

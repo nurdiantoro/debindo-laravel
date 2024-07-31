@@ -14,10 +14,17 @@ use App\Models\Partner;
 use App\Models\Team;
 use App\Models\Testimoni;
 use App\Models\Youtube;
+use App\Services\InstagramService;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
+    protected $instagramService;
+    public function __construct(InstagramService $instagramService)
+    {
+        $this->instagramService = $instagramService;
+    }
+
     public function index()
     {
         $highlights = News::limit(4)->get();
@@ -51,6 +58,9 @@ class FrontendController extends Controller
     }
     public function news()
     {
+        $dataMentah = $this->instagramService->getUserMedia();
+        $data = array_slice($dataMentah['data'], 0, 9);
+
         $newsCarousel = NewsCarousel::all();
         $newss = News::orderBy('tgl_post', 'desc')->get();
         $title = "Debindo | News";
@@ -58,6 +68,7 @@ class FrontendController extends Controller
             'title' => $title,
             'newsCarousel' => $newsCarousel,
             'newss' => $newss,
+            'instagrams' => $data,
         ]);
     }
     public function news_detail($slug)
@@ -119,5 +130,15 @@ class FrontendController extends Controller
         } else {
             return redirect()->back()->withErrors($validate);
         }
+    }
+
+    public function instagram()
+    {
+        // $media = array_slice($this->instagramService->getUserMedia(), 0, 1);
+        $dataMentah = $this->instagramService->getUserMedia();
+        $data = array_slice($dataMentah['data'], 0, 9);
+
+        dd($data);
+        // return view('instagram', compact('media'));
     }
 }

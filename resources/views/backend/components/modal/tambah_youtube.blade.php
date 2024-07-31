@@ -10,6 +10,7 @@
                     @csrf
                     <div class="mb-3">
                         <label for="thumbnail" class="form-label">thumbnail</label>
+                        <small class="text-danger">(Size harus kurang dari 500kb)</small>
                         <input required class="form-control" type="file" id="thumbnail" name="thumbnail">
                         {{-- <input type="hidden" name="thumbnail_lama" value=""> --}}
                     </div>
