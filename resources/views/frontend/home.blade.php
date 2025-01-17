@@ -76,7 +76,7 @@
                     </div>
                     <div class="carousel-partners owl-theme owl-carousel">
                         @foreach ($partners as $partner)
-                            <img src="{{ asset('storage/img/partner/' . $partner->logo) }}" alt="">
+                            <img src="{{ asset('storage/' . $partner->logo) }}" alt="">
                         @endforeach
                     </div>
 
@@ -125,7 +125,7 @@
                         @foreach ($next_events as $next_event)
                             <div class="card-wrapper">
                                 <div class="card">
-                                    <img src="{{ asset('storage/img/event/' . $next_event->image) }}" alt="">
+                                    <img src="{{ asset('storage/' . $next_event->image) }}" alt="">
                                     <p class="nama">{{ $next_event->name }}</p>
                                     <p class="tanggal">{{ $next_event->tanggal }}</p>
                                     <p class="lokasi">{{ $next_event->lokasi }}</p>
@@ -167,8 +167,7 @@
                             <a href="{{ $youtube->link }}" target=_blank>
                                 <div class="card-news">
                                     <div class="image-wrapper">
-                                        <img class="image"
-                                            src="{{ asset('storage/img/youtube') . '/' . $youtube->thumbnail }}"
+                                        <img class="image" src="{{ asset('storage/' . $youtube->thumbnail) }}"
                                             alt="{{ $youtube->thumbnail }}">
                                     </div>
                                     <div class="judul">{{ $youtube->title }}</div>
@@ -186,7 +185,7 @@
                 @foreach ($testimoni as $testi)
                     <div class="carousel-testimoni-item">
                         <div class="foto-wrapper">
-                            <img src="{{ asset('storage/img/testimoni') . '/' . $testi->foto }}" alt="">
+                            <img src="{{ asset('storage/' . $testi->foto) }}" alt="">
                         </div>
                         <div class="nama">
                             <?= $testi->nama ?>

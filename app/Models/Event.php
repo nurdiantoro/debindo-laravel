@@ -10,16 +10,17 @@ class Event extends Model
     use HasFactory;
     protected $table = 'event';
 
-    protected $fillable = [
-        'judul',
-        'tgl_mulai',
-        'tgl_selesai',
-        'lokasi',
-        'kota',
-        'addition',
-        'link',
-        'logo',
-        'eo',
-        'deskripsi',
-    ];
+    protected $guarded = [];
+    // protected $fillable = [
+    //     'judul',
+    //     'tgl_mulai',
+    //     'tgl_selesai',
+    //     'lokasi',
+    //     'kota',
+    //     'addition',
+    //     'link',
+    //     'logo',
+    //     'eo',
+    //     'deskripsi',
+    // ];
 }

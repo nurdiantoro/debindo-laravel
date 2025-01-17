@@ -5,13 +5,12 @@
             <div class="row">
 
                 <!-- Carousel -->
-                <div class="col-md-8 carousel">
+                <div class="col-md-12 carousel">
                     <div class="carousel-news owl-theme owl-carousel">
                         <?php foreach($newsCarousel as $carousel): ?>
                         <div class="carousel-news-item">
                             <span><?= $carousel->title ?></span>
-                            <img src="<?= url('storage/img/news') . '/' . $carousel->foto ?>" alt="<?= $carousel->foto ?>"
-                                class="img-fluid w-100">
+                            <img src="<?= url('storage/' . $carousel->foto) ?>" class="img-fluid w-100">
                         </div>
                         <?php endforeach;?>
                     </div>
@@ -34,7 +33,7 @@
                 </div>
 
                 <!-- Instagram -->
-                <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <div class="ig">
                         <div class="row d-flex align-items-center">
                             <div class="col-md-4 col-4">
@@ -79,7 +78,7 @@
                             <a href="https://www.instagram.com/debindonetwork/" target="blank">visit our instagram</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
 
@@ -91,7 +90,7 @@
                     <a href="<?= url('news/' . $news->id) ?>">
                         <div class="card-news">
                             <div class="image-wrapper">
-                                <img src="<?= url('storage/img/news') . '/' . $news->image ?>" class="image">
+                                <img src="<?= url('storage/' . $news->image) ?>" class="image">
                             </div>
                             <div class="judul"><?= $news->judul ?></div>
                             <div class="isi"

@@ -49,7 +49,7 @@
                                 <?php }?>
 
                                 <div class="logo-wrapper">
-                                    <img src="{{ url('storage/img/event') . '/' . $debindo->logo }}">
+                                    <img src="{{ url('storage/' . $debindo->logo) }}">
                                 </div>
                                 <span>{{ $debindo->judul }}</span>
                             </div>

@@ -13,7 +13,7 @@
                         <div class="col-md-3 col-12">
                             <div class="card-team direksi">
                                 <div class="foto-wrapper">
-                                    <img src="{{ url('storage/img/team') . '/' . $direksi->foto }}"alt="">
+                                    <img src="{{ url('storage/' . $direksi->foto) }}"alt="">
                                 </div>
                                 <div class="detail">
                                     <div class="nama">
@@ -43,7 +43,7 @@
                     <div class="col-md-3 col-12">
                         <div class="card-team manager">
                             <div class="foto-wrapper">
-                                <img src="{{ url('storage/img/team') . '/' . $manager->foto }}" alt="">
+                                <img src="{{ url('storage/' . $manager->foto) }}" alt="">
                             </div>
                             <div class="detail">
                                 <div class="nama">
@@ -72,7 +72,7 @@
                     <div class="col-md-3 col-12">
                         <div class="card-team staff">
                             <div class="foto-wrapper">
-                                <img src="{{ url('storage/img/team') . '/' . $staff->foto }}" alt="">
+                                <img src="{{ url('storage/' . $staff->foto) }}" alt="">
                             </div>
                             <div class="detail">
                                 <div class="nama">

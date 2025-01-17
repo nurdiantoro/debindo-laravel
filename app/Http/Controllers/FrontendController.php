@@ -58,8 +58,8 @@ class FrontendController extends Controller
     }
     public function news()
     {
-        $dataMentah = $this->instagramService->getUserMedia();
-        $data = array_slice($dataMentah['data'], 0, 9);
+        // $dataMentah = $this->instagramService->getUserMedia();
+        // $data = array_slice($dataMentah['data'], 0, 9);
 
         $newsCarousel = NewsCarousel::all();
         $newss = News::orderBy('tgl_post', 'desc')->get();
@@ -68,7 +68,7 @@ class FrontendController extends Controller
             'title' => $title,
             'newsCarousel' => $newsCarousel,
             'newss' => $newss,
-            'instagrams' => $data,
+            // 'instagrams' => $data,
         ]);
     }
     public function news_detail($slug)
