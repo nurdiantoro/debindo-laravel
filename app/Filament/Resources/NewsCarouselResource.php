@@ -19,7 +19,8 @@ class NewsCarouselResource extends Resource
 {
     protected static ?string $model = NewsCarousel::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
+    protected static ?string $navigationGroup = 'News';
 
     public static function form(Form $form): Form
     {
@@ -32,7 +33,9 @@ class NewsCarouselResource extends Resource
                 FileUpload::make('foto')
                     ->directory('img/news')
                     ->preserveFilenames()
-                    ->imageEditor(),
+                    ->image()
+                    ->imageResizeMode('cover')
+                    ->imageResizeTargetHeight('500'),
             ]);
     }
 
@@ -65,7 +68,8 @@ class NewsCarouselResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultPaginationPageOption(25);
     }
 
     public static function getRelations(): array

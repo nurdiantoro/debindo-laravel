@@ -26,6 +26,8 @@ class DashboardPanelProvider extends PanelProvider
             ->default()
             ->id('dashboard')
             ->path('dashboard')
+            ->brandName('Debindo')
+            // ->brandLogo(asset('storage/img/debindo-logo-01.png'))
             ->login()
             ->colors([
                 'primary' => Color::Amber,

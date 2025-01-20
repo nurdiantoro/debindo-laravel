@@ -19,7 +19,8 @@ class PartnerResource extends Resource
 {
     protected static ?string $model = Partner::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $navigationGroup = 'Homepage';
 
     public static function form(Form $form): Form
     {
@@ -41,10 +42,10 @@ class PartnerResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('logo')
-                    ->disk('public', 'img/partner'),
                 Tables\Columns\TextColumn::make('urutan')
                     ->searchable(),
+                ImageColumn::make('logo')
+                    ->disk('public', 'img/partner'),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
@@ -56,6 +57,7 @@ class PartnerResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('urutan', 'asc')
             ->filters([
                 //
             ])

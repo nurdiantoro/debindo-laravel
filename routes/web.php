@@ -26,20 +26,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/mengganti_url_logo', [PerubahanDatabase::class, 'mengganti_url_logo']);
-Route::get('/mengganti_url_team', [PerubahanDatabase::class, 'mengganti_url_team']);
-Route::get('/mengganti_url_news', [PerubahanDatabase::class, 'mengganti_url_news']);
-Route::get('/mengganti_url_newscarousel', [PerubahanDatabase::class, 'mengganti_url_newscarousel']);
-Route::get('/mengganti_url_eventcarousel', [PerubahanDatabase::class, 'mengganti_url_eventcarousel']);
-Route::get('/mengganti_url_partner', [PerubahanDatabase::class, 'mengganti_url_partner']);
-Route::get('/mengganti_url_testimoni', [PerubahanDatabase::class, 'mengganti_url_testimoni']);
-Route::get('/mengganti_url_youtube', [PerubahanDatabase::class, 'mengganti_url_youtube']);
+// Route::get('/mengganti_url_logo', [PerubahanDatabase::class, 'mengganti_url_logo']);
+// Route::get('/mengganti_url_team', [PerubahanDatabase::class, 'mengganti_url_team']);
+// Route::get('/mengganti_url_news', [PerubahanDatabase::class, 'mengganti_url_news']);
+// Route::get('/mengganti_url_newscarousel', [PerubahanDatabase::class, 'mengganti_url_newscarousel']);
+// Route::get('/mengganti_url_eventcarousel', [PerubahanDatabase::class, 'mengganti_url_eventcarousel']);
+// Route::get('/mengganti_url_partner', [PerubahanDatabase::class, 'mengganti_url_partner']);
+// Route::get('/mengganti_url_testimoni', [PerubahanDatabase::class, 'mengganti_url_testimoni']);
+// Route::get('/mengganti_url_youtube', [PerubahanDatabase::class, 'mengganti_url_youtube']);
 
-Route::get('/artisan', function () {
-    Artisan::call('config:clear');
-    Artisan::call('optimize');
-    return 'Configuration cache cleared!';
-});
+// Route::get('/artisan', function () {
+//     Artisan::call('config:clear');
+//     Artisan::call('optimize');
+//     return 'Configuration cache cleared!';
+// });
 
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/event', [FrontendController::class, 'event'])->name('event');

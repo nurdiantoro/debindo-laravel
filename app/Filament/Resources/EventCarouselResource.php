@@ -21,20 +21,26 @@ class EventCarouselResource extends Resource
 {
     protected static ?string $model = EventCarousel::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-calendar-days';
+    protected static ?string $navigationGroup = 'Event';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 TextInput::make('title')
+                    ->hint('Optional')
                     ->maxLength(255),
                 TextInput::make('subtitle')
+                    ->hint('Optional')
                     ->maxLength(255),
                 FileUpload::make('foto')
+                    ->helperText('Ukuranya harus sesuai ya.')
+                    ->label('Image (2780px X 800px)')
                     ->directory('img/event')
                     ->imageEditor(),
                 TextInput::make('urutan')
+                    ->hint('Optional')
                     ->maxLength(255),
             ]);
     }
