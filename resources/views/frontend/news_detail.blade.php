@@ -4,8 +4,13 @@
         <div class="image-wrapper">
             <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}">
         </div>
-        <h2>{{ $news->title }}</h2>
-        <div class="container">
+        <h2>{{ $news->judul }}</h2>
+        <div class="date-wrapper">
+            <span
+                class="date">{{ \Carbon\Carbon::parse($news->tgl_post)->locale('id')->translatedFormat('l, d F Y') }}</span>
+            <span class="author">Ditulis oleh {{ !empty($news->nama_penulis) ? $news->nama_penulis : 'Admin' }}</span>
+        </div>
+        <div class="">
             <div class="isi">{!! $news->isi !!}</div>
         </div>
     </div>

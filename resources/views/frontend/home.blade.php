@@ -130,7 +130,7 @@
                                     <p class="tanggal">{{ $next_event->tanggal }}</p>
                                     <p class="lokasi">{{ $next_event->lokasi }}</p>
                                     @if ($next_event->link)
-                                        <a href="{{ $next_event->link }} target="_blank" class="link">Link
+                                        <a href="{{ $next_event->link }}" target="_blank" class="link">Link
                                             Website</a>
                                     @endif
                                 </div>
@@ -140,18 +140,6 @@
                 </div>
             </div>
         </div>
-
-        <!----------------------------- Our Value ----------------------------->
-        {{-- <div class="our-value">
-            <div class="container">
-                <div class="text-center w-auto">
-                    <div class="h3-wrapper">
-                        <h3>Our Values</h3>
-                    </div>
-                    <img src="{{ asset('storage/img/our-value.png') }}" class="img-fluid" alt="our-value">
-                </div>
-            </div>
-        </div> --}}
 
         <!----------------------------- Youtube ----------------------------->
         <div class="highlights">

@@ -6,27 +6,30 @@
                 <span style="color : var(--warna-01);">WE'RE GLAD YOU KNOW</span> OUR TEAM
             </h1>
 
-            <!-- Direksi -->
-            <div class="board-of-director">
+            @php
+                $teams = [
+                    ['data' => $ourDireksi->sortBy('urutan'), 'class' => 'direksi'],
+                    ['data' => $ourManager->sortBy('urutan'), 'class' => 'manager'],
+                    ['data' => $ourStaff->sortBy('urutan'), 'class' => 'staff'],
+                ];
+            @endphp
+
+            @foreach ($teams as $team)
                 <div class="row justify-content-center">
-                    @foreach ($ourDireksi as $direksi)
+                    @foreach ($team['data'] as $person)
                         <div class="col-md-3 col-12">
-                            <div class="card-team direksi">
+                            <div class="card-team {{ $team['class'] }}">
                                 <div class="foto-wrapper">
-                                    <img src="{{ url('storage/' . $direksi->foto) }}"alt="">
+                                    <img src="{{ url('storage/' . $person->foto) }}" alt="">
                                 </div>
                                 <div class="detail">
-                                    <div class="nama">
-                                        {{ $direksi['nama'] }}
-                                    </div>
-                                    <div class="jabatan">
-                                        {{ $direksi['jabatan'] }}
-                                    </div>
+                                    <div class="nama">{{ $person['nama'] }}</div>
+                                    <div class="jabatan">{{ $person['jabatan'] }}</div>
                                     <div>
-                                        <a href="mailto:{{ $direksi['email'] }}">
+                                        <a href="mailto:{{ $person['email'] }}">
                                             <i class="icon fas fa-envelope"></i>
                                         </a>
-                                        <a href="{{ $direksi['linkedin'] }}">
+                                        <a href="{{ $person['linkedin'] }}">
                                             <i class="icon fab fa-linkedin"></i>
                                         </a>
                                     </div>
@@ -35,65 +38,8 @@
                         </div>
                     @endforeach
                 </div>
-            </div>
+            @endforeach
 
-            <!-- Manajer & Staff -->
-            <div class="row justify-content-center">
-                @foreach ($ourManager as $manager)
-                    <div class="col-md-3 col-12">
-                        <div class="card-team manager">
-                            <div class="foto-wrapper">
-                                <img src="{{ url('storage/' . $manager->foto) }}" alt="">
-                            </div>
-                            <div class="detail">
-                                <div class="nama">
-                                    {{ $manager['nama'] }}
-                                </div>
-                                <div class="jabatan">
-                                    {{ $manager['jabatan'] }}
-                                </div>
-                                <div>
-                                    <a href="mailto:{{ $manager['email'] }}">
-                                        <i class="icon fas fa-envelope"></i>
-                                    </a>
-                                    <a href="{{ $manager['linkedin'] }}">
-                                        <i class="icon fab fa-linkedin"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
-
-            </div>
-            <div class="row justify-content-center">
-                @foreach ($ourStaff as $staff)
-                    <div class="col-md-3 col-12">
-                        <div class="card-team staff">
-                            <div class="foto-wrapper">
-                                <img src="{{ url('storage/' . $staff->foto) }}" alt="">
-                            </div>
-                            <div class="detail">
-                                <div class="nama">
-                                    {{ $staff['nama'] }}
-                                </div>
-                                <div class="jabatan">
-                                    {{ $staff['jabatan'] }}
-                                </div>
-                                <div>
-                                    <a href="mailto:{{ $staff['email'] }}">
-                                        <i class="icon fas fa-envelope"></i>
-                                    </a>
-                                    <a href="{{ $staff['linkedin'] }}">
-                                        <i class="icon fab fa-linkedin"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
         </div>
     </div>
 @endsection

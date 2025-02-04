@@ -75,6 +75,9 @@ class FrontendController extends Controller
     {
         $news = News::find($slug);
         $title = $news->title;
+
+        // dd($news->tgl_post, gettype($news->tgl_post));
+
         return view('frontend.news_detail', [
             'title' => $title,
             'news' => $news,

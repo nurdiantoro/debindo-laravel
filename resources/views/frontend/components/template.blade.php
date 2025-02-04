@@ -45,7 +45,7 @@
     <link rel="icon" type="image/x-icon" href="{{ url('storage/img/debindo-logo.png') }}">
 
     <!-- CSS -->
-    <link href="{{ url('assets/style.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/style-v1.css') }}" rel="stylesheet">
     <link href="{{ url('assets/fontawesome/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">

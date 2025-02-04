@@ -1,7 +1,8 @@
 @extends('frontend.components.template')
 @section('content')
     <div id="career">
-        <div class="header" style="display: flex; flex-direction: column;">
+        <div class="header"
+            style="display: flex; flex-direction: column; background-image: url('/storage/img/career/careerok2.jpg');">
             <h1>COME WORK <span style="color:var(--warna-02);">WITH US</span></h1>
             <p style="color:var(--white-100)">career@debindo.com</p>
         </div>

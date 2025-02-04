@@ -16,4 +16,7 @@ class News extends Model
         'isi',
         'image',
     ];
+
+    protected $casts =
+    ['tgl_post' => 'datetime'];
 }

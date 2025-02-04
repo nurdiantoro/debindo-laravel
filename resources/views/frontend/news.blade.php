@@ -7,10 +7,11 @@
                 <!-- Carousel -->
                 <div class="col-md-12 carousel">
                     <div class="carousel-news owl-theme owl-carousel">
-                        <?php foreach($newsCarousel as $carousel): ?>
+                        <?php foreach($newss as $carousel): ?>
                         <div class="carousel-news-item">
-                            <span><?= $carousel->title ?></span>
-                            <img src="<?= url('storage/' . $carousel->foto) ?>" class="img-fluid w-100">
+                            <span><?= $carousel->judul ?></span>
+                            <img src="<?= url('storage/' . $carousel->image) ?>" class="img-fluid w-500"
+                                style="height: 500px; object-fit: cover">
                         </div>
                         <?php endforeach;?>
                     </div>

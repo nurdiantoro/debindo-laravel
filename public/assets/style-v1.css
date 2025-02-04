@@ -968,14 +968,33 @@ body {
 
 /* ----------------------------------NEWS DETAIL---------------------------------- */
 #news-detail {
-	padding: 100px 0px;
+	padding: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #fff;
+    max-width: 768px;
+    margin: 80px auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 #news-detail h2 {
 	text-align: center;
 	color: var(--warna-01);
-	font-size: 26px;
+	font-size: 2rem;
 	font-weight: var(--semi-bold);
+}
+#news-detail .date-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+    margin-bottom: 20px;
+}
+#news-detail .date {
+	text-align: center;
+    margin: 0px;
+}
+#news-detail .author {
+	text-align: center;
 }
 
 #news-detail .detail {
@@ -988,7 +1007,7 @@ body {
 }
 
 #news-detail .image-wrapper {
-	height: 500px;
+	/* height: 500px; */
 	overflow: hidden;
 	position: relative;
 	margin-bottom: 20px;
@@ -1001,11 +1020,11 @@ body {
 	max-height: 100%;
 	display: block;
 	margin: auto;
-	border-radius: 10px;
+	/* border-radius: 10px; */
 }
 
 #news-detail .isi {
-	margin-bottom: 70px;
+	/* margin-bottom: 70px; */
 	text-align: justify;
 }
 
@@ -1020,7 +1039,6 @@ body {
 }
 
 #career .header {
-	background-image: url('../storage/img/career/careerok2.jpg');
 	background-repeat: no-repeat;
 	background-size: 100%;
 	height: 450px;
