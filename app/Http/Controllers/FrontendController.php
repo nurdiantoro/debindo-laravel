@@ -32,7 +32,7 @@ class FrontendController extends Controller
         $youtubes = Youtube::all();
         $partners = Partner::orderBy('urutan', 'asc')->get();
         $title = "Debindo | All Event Spesialists";
-        $next_events = NextEvent::all();
+        $next_events = NextEvent::get()->orderBy('urutan', 'asc');
         return view('frontend.home', [
             'highlights' => $highlights,
             'testimoni' => $testimoni,
