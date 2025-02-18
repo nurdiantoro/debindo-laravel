@@ -46,8 +46,8 @@ class FrontendController extends Controller
     public function event()
     {
         $eventCarousel = EventCarousel::all();
-        $eventDebindo = Event::where('eo', 'Debindomulti Adhiswasti')->orderBy('tgl_mulai', 'desc')->get();
-        $events = Event::all();
+        $eventDebindo = Event::where('eo', 'Debindomulti Adhiswasti')->select('judul', 'logo', 'kota')->orderBy('tgl_mulai', 'desc')->get();
+        $events = Event::select('judul', 'kota', 'tgl_mulai', 'tgl_selesai', 'eo')->get();
         $title = "Debindo | Events";
         return view('frontend.event', [
             'title' => $title,

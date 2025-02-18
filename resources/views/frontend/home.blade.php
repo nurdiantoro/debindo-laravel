@@ -39,27 +39,34 @@
             </div>
         </div>
 
-        <!----------------------------- About Debindo ----------------------------->
+        <!----------------------------- Our Values ----------------------------->
         <div class="about-debindo">
             <div class="container text-center">
                 <h3>Our Values</h3>
-                <div class="row mt-5">
+                <div class="row mt-5 d-flex justify-content-between">
                     <div class="col-md-4">
                         <img src="{{ asset('storage/img/debindo-logo-2.png') }}" class="img-fluid" alt="debindo-logo">
                     </div>
-                    <div class="col-md-8 ">
-                        <img src="{{ asset('storage/img/our-value.png') }}" class="img-fluid" alt="our-value">
-
-                        {{-- <p>Exhibitors at DEBINDO will find all manner and dimensions of premises to suit every conceivable
-                            idea
-                            and
-                            concept.
-                            The possibilities for individual planning, combined with excellent service from our experienced
-                            officers, make
-                            DEBINDO the ideal partner for you to participate on our trade shows, conferences, congresses and
-                            special
-                            events.
-                        </p> --}}
+                    {{-- <img src="{{ asset('storage/img/our-value.png') }}" class="img-fluid" alt="our-value"> --}}
+                    <div class="col-md-6 text-secondary d-flex justify-content-between align-items-center">
+                        <div class="d-flex flex-column">
+                            <span class="h1">
+                                <i class="fas fa-cogs"></i>
+                            </span>
+                            <span>Optimism</span>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <span class="h1">
+                                <i class="fas fa-lightbulb"></i>
+                            </span>
+                            <span>Determination</span>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <span class="h1">
+                                <i class="fas fa-medal"></i>
+                            </span>
+                            <span>Achievement</span>
+                        </div>
                     </div>
                 </div>
             </div>
