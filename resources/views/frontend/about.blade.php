@@ -16,7 +16,7 @@
                         </a>
                     </div>
                 </div>
-                <div
+                {{-- <div
                     style="
                     font-weight: var(--bold);
                     color: var(--warna-01);
@@ -25,9 +25,9 @@
                     line-height: 80px;">
                     <span style="color : var(--warna-02); font-size: 28px;">Our</span>
                     <span style="color : var(--warna-01); font-size: 28px;"> Network</span>
-                </div>
+                </div> --}}
 
-                <div class="logo-wrapper" style="padding-top:0px">
+                {{-- <div class="logo-wrapper" style="padding-top:0px">
                     <div class="logo">
                         <a href="http://debindo-ite.com/">
                             <img src="{{ url('storage/img/about/Asset 13.png') }}" alt="">
@@ -58,7 +58,7 @@
                             <img src="{{ url('storage/img/about/Asset 18.png') }}" alt="">
                         </a>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="who-we-are text-center">
                 <div class="container">
