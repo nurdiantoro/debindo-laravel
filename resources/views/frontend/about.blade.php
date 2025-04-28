@@ -63,7 +63,7 @@
             <div class="who-we-are text-center">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-lg-6">
                             <span>WHO WE ARE</span>
                             <p>Debindo sets sights on providing exhibitors and visitors with top quality services through
                                 continued global network expansion and exploring opportunities for growth in support of our
@@ -80,7 +80,7 @@
                                 the best professional service.
                             </p>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-lg-6">
                             <div class="p-5">
                                 <img src="{{ url('storage/img/about/foto-bod.png') }}" alt="foto-bod-debindo"
                                     class="img-fluid">
@@ -92,12 +92,13 @@
             <div class="quality-service text-center">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="image-wrapper">
-                                <img src="{{ url('storage/img/about/logo-debindo-kan-iso.png') }}" class="img-fluid">
+                        <div class="col-lg-6">
+                            <div class="image-wrapper" style="padding: 0px">
+                                <img src="{{ url('storage/img/about/logo-debindo-kan-iso.png') }}" class="img-fluid"
+                                    style="max-height: 400px">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-lg-6">
                             <span>QUALITY SERVICE</span>
                             <p>Exhibitors at DEBINDO will find all manner and dimensions of premises to suit every
                                 conceivable idea and concept. The possibilities for individual planning, combined with
