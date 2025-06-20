@@ -50,19 +50,19 @@
                     {{-- <img src="{{ asset('storage/img/our-value.png') }}" class="img-fluid" alt="our-value"> --}}
                     <div class="col-md-6 text-secondary d-flex justify-content-between align-items-center">
                         <div class="d-flex flex-column">
-                            <span class="h1">
+                            <span style="font-size: 3rem">
                                 <i class="fas fa-cogs"></i>
                             </span>
                             <span>Optimism</span>
                         </div>
                         <div class="d-flex flex-column">
-                            <span class="h1">
+                            <span style="font-size: 3rem">
                                 <i class="fas fa-lightbulb"></i>
                             </span>
                             <span>Determination</span>
                         </div>
                         <div class="d-flex flex-column">
-                            <span class="h1">
+                            <span style="font-size: 3rem">
                                 <i class="fas fa-medal"></i>
                             </span>
                             <span>Achievement</span>

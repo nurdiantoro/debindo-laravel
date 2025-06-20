@@ -94,7 +94,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="image-wrapper" style="padding: 0px">
-                                <img src="{{ url('storage/img/about/logo-debindo-kan-iso.png') }}" class="img-fluid"
+                                <img src="{{ url('storage/img/about/logo-debindo-kan-iso-2025.png') }}" class="img-fluid"
                                     style="max-height: 400px">
                             </div>
                         </div>

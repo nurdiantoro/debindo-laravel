@@ -29,7 +29,7 @@ class FrontendController extends Controller
     {
         $highlights = News::limit(4)->get();
         $testimoni = Testimoni::all();
-        $youtubes = Youtube::all();
+        $youtubes = Youtube::orderBy('updated_at', 'desc')->get();
         $partners = Partner::orderBy('urutan', 'asc')->get();
         $title = "Debindo | All Event Spesialists";
         $next_events = NextEvent::orderBy('urutan', 'asc')->get();

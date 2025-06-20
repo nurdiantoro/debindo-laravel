@@ -17,8 +17,8 @@
             @foreach ($teams as $team)
                 <div class="row justify-content-center">
                     @foreach ($team['data'] as $person)
-                        <div class="col-md-3 col-12">
-                            <div class="card-team {{ $team['class'] }}">
+                        <div class="col-md-3 col-12" style="margin-bottom: 32px">
+                            <div class="card-team {{ $team['class'] }}" style="height: 100%">
                                 <div class="foto-wrapper">
                                     <img src="{{ url('storage/' . $person->foto) }}" alt="">
                                 </div>
