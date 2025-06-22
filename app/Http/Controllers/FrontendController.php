@@ -61,7 +61,7 @@ class FrontendController extends Controller
         // $dataMentah = $this->instagramService->getUserMedia();
         // $data = array_slice($dataMentah['data'], 0, 9);
 
-        $newsCarousel = NewsCarousel::all();
+        $newsCarousel = NewsCarousel::limit(6)->get();
         $newss = News::orderBy('tgl_post', 'desc')->get();
         $title = "Debindo | News";
         return view('frontend.news', [
@@ -103,6 +103,13 @@ class FrontendController extends Controller
             'ourDireksi' => $ourDireksi,
             'ourManager' => $ourManager,
             'ourStaff' => $ourStaff,
+        ]);
+    }
+    public function guide()
+    {
+        $title = "Debindo | Guidelines of Debindo";
+        return view('frontend.guide', [
+            'title' => $title
         ]);
     }
     public function about()

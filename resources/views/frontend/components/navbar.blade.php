@@ -31,6 +31,9 @@
                 <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
                     <a href="{{ url('contact') }}">CONTACT US</a>
                 </li>
+                <li class="nav-item {{ request()->is('guide') ? 'active' : '' }}">
+                    <a href="{{ url('guide') }}">GUIDELINE</a>
+                </li>
             </ul>
         </div>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">

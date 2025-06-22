@@ -7,13 +7,19 @@
                 <!-- Carousel -->
                 <div class="col-md-12 carousel">
                     <div class="carousel-news owl-theme owl-carousel">
-                        <?php foreach($newss as $carousel): ?>
-                        <div class="carousel-news-item">
-                            <span><?= $carousel->judul ?></span>
-                            <img src="<?= url('storage/' . $carousel->image) ?>" class="img-fluid w-500"
-                                style="height: 500px; object-fit: cover">
-                        </div>
-                        <?php endforeach;?>
+                        <?php
+                        $i = 0;
+                        foreach($newss as $carousel):
+
+                        ?>
+                        @if ($i <= 8)
+                            <div class="carousel-news-item">
+                                <span><?= $carousel->judul ?></span>
+                                <img src="<?= url('storage/' . $carousel->image) ?>" class="img-fluid w-500"
+                                    style="height: 500px; object-fit: cover">
+                            </div>
+                        @endif
+                        <?php $i++; endforeach;?>
                     </div>
                     <script>
                         $(document).ready(function() {
